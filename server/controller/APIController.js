@@ -24,26 +24,25 @@ APIController.call = (req, res, next) => {
 
 APIController.instantiateTable = (req, res, next) => {
   const data = res.locals.pokemonData.data;
+  console.log("length: ",data.length);
   const newData =[]
-  for (let i = 0 ; i < 10; i++){
+  for (let i = 0 ; i < 150; i++){
     str = `INSERT INTO pokemonTable (pokemon_name, pokemon_type, hp, marketPrice, updatedDate, img) VALUES ('${data[i].name}', '${data[i].types[0]}',${data[i].hp}, ${data[i].cardmarket.prices.averageSellPrice}, '${data[i].cardmarket.updatedAt}', '${data[i].images.small}')`
     newData.push(str)
   }
-  function queryDB(counter = 0){
-    
-    if ( counter < newData.length) {
-      db.query(newData[counter])
-      .then(() => {
-        queryDB(++counter)
-      })
-      .catch(err => {
-        queryDB(++counter)
-      }) 
+  async function queryDB(arr){
+    for (const el of arr) {
+      try{
+        await db.query(el)
+      }
+      catch {
+        console.log(el);
+        continue
+      }
     }
   }
-  queryDB()
-
-
+  queryDB(newData);
+  return next();
 
   // let str = `INSERT INTO pokemonTable (pokemon_name, pokemon_type, hp, marketPrice, updatedDate, img) VALUES `
   // console.log(data[0])
