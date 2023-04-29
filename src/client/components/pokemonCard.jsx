@@ -1,8 +1,8 @@
 import React from 'react'
 
-
-export default function (){
+//show the image using the url fetched from server by fetching url, use img src tag
+export default function (props){
     return(
-    <div>hi</div>
+    <img src={props.card}/>
     )
 }
