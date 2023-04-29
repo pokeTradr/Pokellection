@@ -24,34 +24,55 @@ APIController.call = (req, res, next) => {
 
 APIController.instantiateTable = (req, res, next) => {
   const data = res.locals.pokemonData.data;
-  let str = `INSERT INTO pokemonTable (pokemon_name, pokemon_type, hp, marketPrice, updatedDate, img) VALUES `
-  console.log(data[0])
-  
-  for (let i = 0; i < 25; i++) {
-    if (i === 24){
-      str += `('${data[i].name}', '${data[i].types[0]}',${data[i].hp}, '${data[i].cardmarket.prices.averageSellPrice}', '${data[i].cardmarket.updatedAt}', '${data[i].images.small}');`
-      console.log(str)
-    }
-    else{
-      str += `('${data[i].name}', '${data[i].types[0]}',${data[i].hp}, '${data[i].cardmarket.prices.averageSellPrice}', '${data[i].cardmarket.updatedAt}', '${data[i].images.small}'),`
-      console.log(str)
-    }
-    console.log(str)
+  const newData =[]
+  for (let i = 0 ; i < 10; i++){
+    str = `INSERT INTO pokemonTable (pokemon_name, pokemon_type, hp, marketPrice, updatedDate, img) VALUES ('${data[i].name}', '${data[i].types[0]}',${data[i].hp}, ${data[i].cardmarket.prices.averageSellPrice}, '${data[i].cardmarket.updatedAt}', '${data[i].images.small}')`
+    newData.push(str)
   }
-  db.query(str, (err, results) => {
-    if (err) {
-      const newErr = 
-      {
-        log: 'Express error while inserting pokemon from API',
-        status: 400,
-        message: { err: 'Express error while inserting pokemon from API' },
-      };
-      console.log(err);
-      return next(newErr);
+  function queryDB(counter = 0){
+    
+    if ( counter < newData.length) {
+      db.query(newData[counter])
+      .then(() => {
+        queryDB(++counter)
+      })
+      .catch(err => {
+        queryDB(++counter)
+      }) 
     }
-  })
+  }
+  queryDB()
+
+
+
+  // let str = `INSERT INTO pokemonTable (pokemon_name, pokemon_type, hp, marketPrice, updatedDate, img) VALUES `
+  // console.log(data[0])
   
-  console.log("COMPLETE!")
+  // for (let i = 0; i < 25; i++) {
+  //   if (i === 24){
+  //     str += `('${data[i].name}', '${data[i].types[0]}',${data[i].hp}, '${data[i].cardmarket.prices.averageSellPrice}', '${data[i].cardmarket.updatedAt}', '${data[i].images.small}');`
+  //     console.log(str)
+  //   }
+  //   else{
+  //     str += `('${data[i].name}', '${data[i].types[0]}',${data[i].hp}, '${data[i].cardmarket.prices.averageSellPrice}', '${data[i].cardmarket.updatedAt}', '${data[i].images.small}'),`
+  //     console.log(str)
+  //   }
+  //   console.log(str)
+  // }
+  // db.query(str, (err, results) => {
+  //   if (err) {
+  //     const newErr = 
+  //     {
+  //       log: 'Express error while inserting pokemon from API',
+  //       status: 400,
+  //       message: { err: 'Express error while inserting pokemon from API' },
+  //     };
+  //     console.log(err);
+  //     return next(newErr);
+  //   }
+  // })
+  
+  // console.log("COMPLETE!")
 
   //return next();
 }
