@@ -19,7 +19,11 @@ app.post(
   (req, res) => {
     // if the SQL database does not have the result, then redirect
     console.log('ending the getPoke middleware');
-    return res.status(200).json(res.locals.selectedPokemon);
+    if (Object.hasOwn(res.locals, 'selectedPokemon')) {
+      return res.status(200).json(res.locals.selectedPokemon);
+    } else {
+      return res.status(404).redirect('/');
+    }
   }
 );
 

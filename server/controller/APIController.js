@@ -49,7 +49,6 @@ APIController.pokemonAPIQuery = (req, res, next) => {
   // if the response doesn't yet have the result
   if (!Object.hasOwn(res.locals, 'selectedPokemon')) {
     console.log('SQL attempt', req.body.name);
-    // queries the API
     // console.log('API querying the api for', req.body.name);
     pokemon.card
       .where({ q: `name:${req.body.name}` })
@@ -73,21 +72,22 @@ APIController.pokemonAPIQuery = (req, res, next) => {
           try {
             const qstr = `INSERT INTO pokemonTable (pokemon_name, pokemon_type, hp, marketPrice, updatedDate, img) VALUES ('${data.name}', '${data.types[0]}',${data.hp}, ${data.cardmarket.prices.averageSellPrice}, '${data.cardmarket.updatedAt}', '${data.images.small}')`;
             console.log(qstr);
-            // db.query(qstr);
-            // .then((d) => console.log(d))
+            db.query(qstr).then((d) => console.log(d));
             // .catch((d) => console.log(d));
           } catch (err) {
             console.log(err);
           }
         } else {
-          next({
-            log: 'card result not found',
-            message: 'card not found',
+          // not an error, but there's no result at db
+          return next({
+            message: 'error in API request',
+            log: 'error in the API req',
           });
         }
         next();
       })
       .catch((err) => {
+        console.log(err);
         next({
           ...err,
           message: 'error in API request',

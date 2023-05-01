@@ -16,10 +16,17 @@ export default function (props) {
       },
       body: JSON.stringify({ name: searchInput }),
     })
-      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+        if (res.status == 200) {
+          return res.json();
+        } else {
+          return;
+        }
+      })
       .then((data) => {
-        props.setData(data);
         console.log('this is my data :', data);
+        data && props.setData(data);
       });
     //fetch imaginary endpoint from server with searchInput as req body
     //promise chain
