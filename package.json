@@ -37,9 +37,13 @@
     "webpack-dev-server": "^4.13.3"
   },
   "dependencies": {
+    "bcrypt": "^5.1.0",
+    "bcryptjs": "^2.4.3",
     "express": "^4.18.2",
+    "mongoose": "^6.8.0",
     "node-fetch": "^2.6.9",
     "pg": "^8.10.0",
+    "pokemontcgsdk": "^2.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }
