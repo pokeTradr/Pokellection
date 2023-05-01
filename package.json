@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode=production --node-env=production",
-    "dev": "webpack serve & nodemon ./server/server.js "
+    "dev": "webpack serve & nodemon ./server/server.js",
+    "start": "nodemon ./server/server.js"
   },
   "repository": {
     "type": "git",
@@ -37,6 +38,8 @@
   },
   "dependencies": {
     "express": "^4.18.2",
+    "node-fetch": "^2.6.9",
+    "pg": "^8.10.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }
