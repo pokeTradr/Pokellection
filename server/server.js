@@ -12,7 +12,7 @@ app.use(express.json());
 // });
 
 // serves client request for a card
-app.get(
+app.post(
   '/getPokemon',
   APIController.getData,
   APIController.pokemonAPIQuery,
