@@ -3,6 +3,7 @@ const path = require('path');
 const APIController = require('./controller/APIController');
 const app = express();
 const PORT = 3000;
+const userController = require('./controller/userController');
 
 // app.use('/', express.static(path.join(__dirname,'')))
 app.use(express.json());
@@ -31,6 +32,15 @@ app.get('/hello', (req, res) => {
   console.log('made a request');
   res.status(200).send('hello I am a response');
 });
+
+app.post("/signup", userController.createUser, (req, res) => {
+  console.log('IS THISW ROKING')
+  res.status(200).send(res.locals.newUser);
+})
+
+app.post("/login", userController.getUser, (req, res) => {
+  res.status(200).json(res.locals.truthy);
+})
 
 app.use('*', (req, res) => {
   res.sendStatus(404);
