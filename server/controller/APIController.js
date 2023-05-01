@@ -43,43 +43,12 @@ APIController.instantiateTable = (req, res, next) => {
   }
   queryDB(newData);
   return next();
-
-  // let str = `INSERT INTO pokemonTable (pokemon_name, pokemon_type, hp, marketPrice, updatedDate, img) VALUES `
-  // console.log(data[0])
-
-  // for (let i = 0; i < 25; i++) {
-  //   if (i === 24){
-  //     str += `('${data[i].name}', '${data[i].types[0]}',${data[i].hp}, '${data[i].cardmarket.prices.averageSellPrice}', '${data[i].cardmarket.updatedAt}', '${data[i].images.small}');`
-  //     console.log(str)
-  //   }
-  //   else{
-  //     str += `('${data[i].name}', '${data[i].types[0]}',${data[i].hp}, '${data[i].cardmarket.prices.averageSellPrice}', '${data[i].cardmarket.updatedAt}', '${data[i].images.small}'),`
-  //     console.log(str)
-  //   }
-  //   console.log(str)
-  // }
-  // db.query(str, (err, results) => {
-  //   if (err) {
-  //     const newErr =
-  //     {
-  //       log: 'Express error while inserting pokemon from API',
-  //       status: 400,
-  //       message: { err: 'Express error while inserting pokemon from API' },
-  //     };
-  //     console.log(err);
-  //     return next(newErr);
-  //   }
-  // })
-
-  // console.log("COMPLETE!")
-
-  //return next();
 };
 
 APIController.pokemonAPIQuery = (req, res, next) => {
   // if the response doesn't yet have the result
-  console.log('reqest body', req.body);
   if (!Object.hasOwn(res.locals, 'selectedPokemon')) {
+    console.log('SQL attempt', req.body.name);
     // queries the API
     // console.log('API querying the api for', req.body.name);
     pokemon.card
@@ -94,12 +63,22 @@ APIController.pokemonAPIQuery = (req, res, next) => {
             types: r.types,
             hp: r.hp,
             cardmarket: r.cardmarket,
-
             images: r.images,
           };
 
           // assign it to res.locals.selectedPokemon
           res.locals.selectedPokemon = data;
+
+          // update the db to include the new data
+          try {
+            const qstr = `INSERT INTO pokemonTable (pokemon_name, pokemon_type, hp, marketPrice, updatedDate, img) VALUES ('${data.name}', '${data.types[0]}',${data.hp}, ${data.cardmarket.prices.averageSellPrice}, '${data.cardmarket.updatedAt}', '${data.images.small}')`;
+            console.log(qstr);
+            // db.query(qstr);
+            // .then((d) => console.log(d))
+            // .catch((d) => console.log(d));
+          } catch (err) {
+            console.log(err);
+          }
         } else {
           next({
             log: 'card result not found',
@@ -115,18 +94,23 @@ APIController.pokemonAPIQuery = (req, res, next) => {
           log: 'error in the API req',
         });
       });
+  } else {
+    next();
   }
 };
 
 APIController.getData = (req, res, next) => {
   const name = req.body.name;
   console.log('name is currently: ', name);
-  const str = `SELECT * FROM pokemonTable WHERE pokemon_name = '${name}'`;
+  const str = `SELECT * FROM pokemonTable WHERE pokemon_name ILIKE '${name}'`;
   db.query(str)
     //.then(data => console.log(data))
-    .then((data) => data.rows[0])
     .then((data) => {
-      //console.log("DATA: ", data)
+      // console.log('the data', data.rows[0]);
+      return data.rows[0];
+    })
+    .then((data) => {
+      // console.log('DATA: ', data);
       const dataSample = {
         name: data.pokemon_name,
         types: [data.pokemon_type],
@@ -142,7 +126,7 @@ APIController.getData = (req, res, next) => {
         },
       };
       res.locals.selectedPokemon = dataSample;
-      // console.log("log this: ", res.locals.selectedPokemon)
+      console.log('log this: ', res.locals.selectedPokemon);
       return next();
     })
     .catch((err) => {
