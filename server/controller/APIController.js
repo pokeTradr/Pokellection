@@ -26,7 +26,7 @@ APIController.instantiateTable = (req, res, next) => {
   const data = res.locals.pokemonData.data;
   console.log("length: ",data.length);
   const newData =[]
-  for (let i = 0 ; i < 150; i++){
+  for (let i = 0 ; i < 100; i++){
     str = `INSERT INTO pokemonTable (pokemon_name, pokemon_type, hp, marketPrice, updatedDate, img) VALUES ('${data[i].name}', '${data[i].types[0]}',${data[i].hp}, ${data[i].cardmarket.prices.averageSellPrice}, '${data[i].cardmarket.updatedAt}', '${data[i].images.small}')`
     newData.push(str)
   }
@@ -76,7 +76,42 @@ APIController.instantiateTable = (req, res, next) => {
   //return next();
 }
 
-
+APIController.getData = (req, res, next) => {
+  const name = req.body.name;
+  console.log("name is currently: ", name)
+  const str = `SELECT * FROM pokemonTable WHERE pokemon_name = '${name}'`;
+  db.query(str)
+  //.then(data => console.log(data))
+  .then(data => data.rows[0])
+  .then(data => {
+    //console.log("DATA: ", data)
+    const dataSample = {
+      name: data.pokemon_name,
+      types: [data.pokemon_type],
+      hp: data.hp,
+      cardmarket: {
+          updatedAt: data.updateddate,
+          prices: {
+            averageSellPrice: data.marketprice,
+          },
+        },
+        images: {
+          small: data.img
+        }
+    }
+    res.locals.selectedPokemon = dataSample;
+    // console.log("log this: ", res.locals.selectedPokemon)
+    return next();
+  })
+  .catch((err) => {
+    const errorObj = {
+      log: 'Couldnt get this pokemon',
+      status: 400,
+      message: 'Uh oh! Couldnt get this pokemon'
+    }
+    return next(errorObj);
+  })
+}
 
 module.exports = APIController;
 

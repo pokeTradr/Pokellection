@@ -5,10 +5,15 @@ const app = express();
 const PORT = 3000;
 
 // app.use('/', express.static(path.join(__dirname,'')))
+app.use(express.json())
 
 app.get("/", APIController.call, APIController.instantiateTable, (req, res) => {
   return res.status(200).send("random");
 });
+
+app.post("/getPokemon", APIController.getData, (req, res) => {
+  return res.status(200).json(res.locals.selectedPokemon);
+})
 
 app.get("/hello", (req, res) => {
   console.log("made a request");
