@@ -41,9 +41,9 @@ export default function App(props) {
                 password: password.current.value
             })
         })
-        // .then(res => setIsVisible(res.json()))
-        // .catch(err => console.log(err))
-        setIsVisible(!isVisible);
+        .then(res => setIsVisible(res.json()))
+        .catch(err => console.log(err))
+        setIsVisible();
     }
     return (
         <div id="App">
