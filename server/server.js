@@ -28,6 +28,10 @@ app.post('/queryPokemonAPI', APIController.pokemonAPIQuery, (req, res) => {
   res.status(200).json(data);
 });
 
+app.post('/getPokemon', APIController.getData, (req, res) => {
+  return res.status(200).json(res.locals.selectedPokemon);
+});
+
 app.get('/hello', (req, res) => {
   console.log('made a request');
   res.status(200).send('hello I am a response');
