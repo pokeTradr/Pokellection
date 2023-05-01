@@ -1,10 +1,12 @@
-import React,{useState, } from "react";
+import React from "react";
+import MainContainer from './client/containers/mainContainer';
+import './styles.css';
 
-export default function App(props) {
+export default function App() {
     return (
         <div id="App">
-            <h1>hello world</h1>
+            <MainContainer />
         </div>
     )
-
 }
+
