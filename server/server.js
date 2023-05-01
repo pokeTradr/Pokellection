@@ -7,14 +7,26 @@ const PORT = 3000;
 // app.use('/', express.static(path.join(__dirname,'')))
 app.use(express.json());
 
-app.get('/', APIController.call, APIController.instantiateTable, (req, res) => {
-  return res.status(200).send('random');
-});
+// app.get('/', APIController.call, APIController.instantiateTable, (req, res) => {
+//   return res.status(200).send('random');
+// });
+
+// serves client request for a card
+app.get(
+  '/getPokemon',
+  APIController.getData,
+  APIController.pokemonAPIQuery,
+  (req, res) => {
+    // if the SQL database does not have the result, then redirect
+
+    return res.status(200).json(res.locals.selectedPokemon);
+  }
+);
 
 // waylnd - test out the npm based API calls
-app.post('/queryPokemonAPI', APIController.pokemonAPIQuery, (req, res) => {
+app.get('/queryPokemonAPI', APIController.pokemonAPIQuery, (req, res) => {
   // gets redirected to if the SQL db query fails
-
+  console.log('last  API query middleware');
   // build up and returnt the response object in the expected format
   let r = res.locals.pokemonCardResult;
   const data = {
@@ -25,11 +37,7 @@ app.post('/queryPokemonAPI', APIController.pokemonAPIQuery, (req, res) => {
 
     images: r.images,
   };
-  res.status(200).json(data);
-});
-
-app.post('/getPokemon', APIController.getData, (req, res) => {
-  return res.status(200).json(res.locals.selectedPokemon);
+  return res.status(200).json(data);
 });
 
 app.get('/hello', (req, res) => {

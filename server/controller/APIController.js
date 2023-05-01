@@ -78,17 +78,27 @@ APIController.instantiateTable = (req, res, next) => {
 
 APIController.pokemonAPIQuery = (req, res, next) => {
   // if the response doesn't yet have the result
-  console.log('in the test route');
   console.log('reqest body', req.body);
-  if (!Object.hasOwn(res.locals, 'pokemonCardResult')) {
+  if (!Object.hasOwn(res.locals, 'selectedPokemon')) {
     // queries the API
-    console.log('querying the api');
+    console.log('API querying the api for', req.body.name);
     pokemon.card
       .where({ q: `name:${req.body.name}` })
       .then((result) => {
         // currently taking the first result from the API response
         if (result.data[0]) {
-          res.locals.pokemonCardResult = result.data[0];
+          let r = result.data[0];
+          const data = {
+            name: r.name,
+            types: r.types,
+            hp: r.hp,
+            cardmarket: r.cardmarket,
+
+            images: r.images,
+          };
+
+          // assign it to res.locals.selectedPokemon
+          res.locals.selectedPokemon = data;
         } else {
           next({
             log: 'card result not found',
@@ -137,7 +147,10 @@ APIController.getData = (req, res, next) => {
         status: 400,
         message: 'Uh oh! Couldnt get this pokemon',
       };
-      return next(errorObj);
+      // set to redirect instead
+      // return next(errorObj);
+      res.locals.redirectToAPI = true;
+      next();
     });
 };
 
