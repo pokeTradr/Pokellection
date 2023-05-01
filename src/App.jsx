@@ -1,6 +1,6 @@
 import React, {useEffect, useState, useRef} from 'react';
 import MainContainer from './client/containers/mainContainer';
-import Login from './client/containers/login';
+
 import './styles.css';
 
 export default function App(props) {
