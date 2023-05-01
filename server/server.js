@@ -23,23 +23,6 @@ app.get(
   }
 );
 
-// waylnd - test out the npm based API calls
-app.get('/queryPokemonAPI', APIController.pokemonAPIQuery, (req, res) => {
-  // gets redirected to if the SQL db query fails
-  console.log('last  API query middleware');
-  // build up and returnt the response object in the expected format
-  let r = res.locals.pokemonCardResult;
-  const data = {
-    name: r.name,
-    types: r.types,
-    hp: r.hp,
-    cardmarket: r.cardmarket,
-
-    images: r.images,
-  };
-  return res.status(200).json(data);
-});
-
 app.get('/hello', (req, res) => {
   console.log('made a request');
   res.status(200).send('hello I am a response');
