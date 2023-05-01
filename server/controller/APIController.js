@@ -81,10 +81,11 @@ APIController.pokemonAPIQuery = (req, res, next) => {
   console.log('reqest body', req.body);
   if (!Object.hasOwn(res.locals, 'selectedPokemon')) {
     // queries the API
-    console.log('API querying the api for', req.body.name);
+    // console.log('API querying the api for', req.body.name);
     pokemon.card
       .where({ q: `name:${req.body.name}` })
       .then((result) => {
+        // TODO: improve filtering to get different editions
         // currently taking the first result from the API response
         if (result.data[0]) {
           let r = result.data[0];
@@ -108,8 +109,11 @@ APIController.pokemonAPIQuery = (req, res, next) => {
         next();
       })
       .catch((err) => {
-        console.log(err);
-        next(err);
+        next({
+          ...err,
+          message: 'error in API request',
+          log: 'error in the API req',
+        });
       });
   }
 };
@@ -147,9 +151,7 @@ APIController.getData = (req, res, next) => {
         status: 400,
         message: 'Uh oh! Couldnt get this pokemon',
       };
-      // set to redirect instead
-      // return next(errorObj);
-      res.locals.redirectToAPI = true;
+      console.log('redirecting to API req instead');
       next();
     });
 };
