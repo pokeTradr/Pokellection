@@ -43,6 +43,7 @@
     "mongoose": "^6.8.0",
     "node-fetch": "^2.6.9",
     "pg": "^8.10.0",
+    "pokemontcgsdk": "^2.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }
