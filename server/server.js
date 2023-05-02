@@ -4,6 +4,7 @@ const APIController = require('./controller/APIController');
 const app = express();
 const PORT = 3000;
 const userController = require('./controller/userController');
+require('dotenv').config();
 
 // app.use('/', express.static(path.join(__dirname,'')))
 app.use(express.json());
@@ -11,6 +12,8 @@ app.use(express.json());
 // app.get('/', APIController.call, APIController.instantiateTable, (req, res) => {
 //   return res.status(200).send('random');
 // });
+
+// console.log('the api key is this: ', [process.env.pokeAPIKey]);
 
 // serves client request for a card
 app.post(
@@ -33,14 +36,14 @@ app.get('/hello', (req, res) => {
   res.status(200).send('hello I am a response');
 });
 
-app.post("/signup", userController.createUser, (req, res) => {
-  console.log('IS THISW ROKING')
+app.post('/signup', userController.createUser, (req, res) => {
+  console.log('IS THISW ROKING');
   res.status(200).send(res.locals.newUser);
-})
+});
 
-app.post("/login", userController.getUser, (req, res) => {
+app.post('/login', userController.getUser, (req, res) => {
   res.status(200).json(res.locals.truthy);
-})
+});
 
 app.use('*', (req, res) => {
   res.sendStatus(404);
