@@ -1,8 +1,10 @@
 const fetch = require('node-fetch');
 const db = require('../models/pokemon_model');
+require('dotenv').config();
+
 const pokemon = require('pokemontcgsdk');
-const akey = require('./config');
-pokemon.configure(akey);
+
+pokemon.configure({ apiKey: process.env.pokeAPIKey });
 
 const APIController = {};
 
@@ -47,9 +49,7 @@ APIController.instantiateTable = (req, res, next) => {
 
 APIController.pokemonAPIQuery = (req, res, next) => {
   // if the response doesn't yet have the result
-
   if (!Object.hasOwn(res.locals, 'selectedPokemon')) {
-    // console.log('SQL attempt', req.body.name);
     // console.log('API querying the api for', req.body.name);
     pokemon.card
       .where({ q: `name:${req.body.name}` })
@@ -73,8 +73,9 @@ APIController.pokemonAPIQuery = (req, res, next) => {
           try {
             const qstr = `INSERT INTO pokemonTable (pokemon_name, pokemon_type, hp, marketPrice, updatedDate, img) VALUES ('${data.name}', '${data.types[0]}',${data.hp}, ${data.cardmarket.prices.averageSellPrice}, '${data.cardmarket.updatedAt}', '${data.images.small}')`;
             // console.log(qstr);
-            // db.query(qstr).then((d) => console.log(d));
-            // .catch((d) => console.log(d));
+            db.query(qstr)
+              .then((d) => console.log(d))
+              .catch((d) => console.log(d));
           } catch (err) {
             console.log(err);
           }
