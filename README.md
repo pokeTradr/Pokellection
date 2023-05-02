@@ -1,5 +1,3 @@
-hello! ryan test test test
-
 # pokellection
 
 ## search and view card prices
@@ -16,3 +14,5 @@ Built using:
 ### Catch em all!
 
 contributors: Ijoo, YoHan, Wayland, Kenny and Kelvin
+
+Sherry
