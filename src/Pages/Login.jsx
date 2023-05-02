@@ -13,22 +13,21 @@ const Login = () => {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        
         axios.post('/login', {
             username,
             password
         })
         .then(response => {
-            useNavigate('/home')
+            navigate('/home')
         })
         .catch(err => {
             <p>User not found</p>
         })
-
     }
     
     return (
         <div className='login_container'>
+            Log in
             <form onSubmit={submitHandler}>
               <input type ='text' placeholder='Username' value={username} onChange={(e) => setUsername(e.target.value)}/>
               <input type = 'password' placeholder = 'Password' value={password} onChange={(e) => setPassword(e.target.value)}/>

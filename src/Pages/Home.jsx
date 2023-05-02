@@ -5,8 +5,7 @@ import React from 'react';
 const Home = () => {
     return (
         <div>
-            Create an account
-            <Navbar />
+            Home Page
         </div>
     ) 
 }
