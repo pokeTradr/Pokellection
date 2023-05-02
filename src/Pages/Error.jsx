@@ -2,7 +2,7 @@ import React from 'react';
 
 
 
-const App = () => {
+const Error = () => {
     return (
         <div>
             Page not found

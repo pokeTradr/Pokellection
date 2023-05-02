@@ -2,7 +2,7 @@ import React from 'react';
 
 
 
-const App = () => {
+const Login = () => {
     return (
         <div>
             Log In
@@ -12,4 +12,4 @@ const App = () => {
 }
 
 
-export default App;
+export default Login;

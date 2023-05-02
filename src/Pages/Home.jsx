@@ -2,7 +2,7 @@ import React from 'react';
 
 
 
-const App = () => {
+const Home = () => {
     return (
         <div>
             Create an account
@@ -12,4 +12,4 @@ const App = () => {
 }
 
 
-export default App;
+export default Home;

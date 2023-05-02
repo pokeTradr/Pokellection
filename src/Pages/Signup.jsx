@@ -2,7 +2,10 @@ import React from 'react';
 
 
 
-const App = () => {
+const Signup = () => {
+    const [username, setUsername] = setState('');
+    const [password, setPassword] = setState('');
+
     return (
         <div>
             Log In
@@ -12,4 +15,4 @@ const App = () => {
 }
 
 
-export default App;
+export default Signup;
