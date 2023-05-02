@@ -27,7 +27,6 @@ userController.createUser = (req, res, next) => {
 };
 
 userController.getUser = (req, res, next) => {
-  //const { username } = req.body;
   // console.log("before user find one")
   // console.log("req body: ", req.body)
   User.findOne({ username: req.body.username }) /*, (err, result) => {*/
