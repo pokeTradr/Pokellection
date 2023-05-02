@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 export default function (props) {
   const [searchInput, setSearchInput] = useState('');
+  
   const handlerChange = (e) => {
     e.preventDefault();
     setSearchInput(e.target.value);
