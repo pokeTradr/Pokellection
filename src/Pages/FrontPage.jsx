@@ -1,13 +1,16 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
+
 
 function FrontPage() {
-  return (
+  const navigate = useNavigate();
 
+  return (
     <div className='front-page-container'>
         <h1>Pokéllection</h1>
         <div className='buttons-container'>
-            <button className='signup_btn'>Sign Up</button>
-            <button className='login_btn'>Login</button>
+            <button className='signup_btn' onClick={() => navigate('./Signup')}>Sign Up</button>
+            <button className='login_btn' onClick={() => navigate('./Login')}>Login</button>
         </div>
 
     </div>
