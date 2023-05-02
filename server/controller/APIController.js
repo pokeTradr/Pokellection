@@ -25,7 +25,7 @@ APIController.call = (req, res, next) => {
 
 APIController.instantiateTable = (req, res, next) => {
   const data = res.locals.pokemonData.data;
-  console.log('length: ', data.length);
+  // console.log('length: ', data.length);
   const newData = [];
   for (let i = 0; i < 100; i++) {
     str = `INSERT INTO pokemonTable (pokemon_name, pokemon_type, hp, marketPrice, updatedDate, img) VALUES ('${data[i].name}', '${data[i].types[0]}',${data[i].hp}, ${data[i].cardmarket.prices.averageSellPrice}, '${data[i].cardmarket.updatedAt}', '${data[i].images.small}')`;
@@ -47,8 +47,9 @@ APIController.instantiateTable = (req, res, next) => {
 
 APIController.pokemonAPIQuery = (req, res, next) => {
   // if the response doesn't yet have the result
+
   if (!Object.hasOwn(res.locals, 'selectedPokemon')) {
-    console.log('SQL attempt', req.body.name);
+    // console.log('SQL attempt', req.body.name);
     // console.log('API querying the api for', req.body.name);
     pokemon.card
       .where({ q: `name:${req.body.name}` })
@@ -71,8 +72,8 @@ APIController.pokemonAPIQuery = (req, res, next) => {
           // update the db to include the new data
           try {
             const qstr = `INSERT INTO pokemonTable (pokemon_name, pokemon_type, hp, marketPrice, updatedDate, img) VALUES ('${data.name}', '${data.types[0]}',${data.hp}, ${data.cardmarket.prices.averageSellPrice}, '${data.cardmarket.updatedAt}', '${data.images.small}')`;
-            console.log(qstr);
-            db.query(qstr).then((d) => console.log(d));
+            // console.log(qstr);
+            // db.query(qstr).then((d) => console.log(d));
             // .catch((d) => console.log(d));
           } catch (err) {
             console.log(err);
@@ -126,7 +127,7 @@ APIController.getData = (req, res, next) => {
         },
       };
       res.locals.selectedPokemon = dataSample;
-      console.log('log this: ', res.locals.selectedPokemon);
+      // console.log('log this: ', res.locals.selectedPokemon);
       return next();
     })
     .catch((err) => {
