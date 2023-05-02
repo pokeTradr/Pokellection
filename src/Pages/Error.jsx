@@ -11,4 +11,4 @@ const Error = () => {
 }
 
 
-export default App;
+export default Error;
