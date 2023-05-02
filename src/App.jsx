@@ -9,10 +9,10 @@ export default function App(props) {
     return (
         <Router>
             <Routes>
-                <Route path = '/' element={<SignUp/>}/>
+                <Route path = '/' element={<Signup/>}/>
                 <Route path = '/login' element = {<Login/>}/>
                 <Route path = '/home' element = {<Home/>}/>
-                <Route path = '*' element = {<ErrorPage/>}/>
+                <Route path = '*' element = {<Error/>}/>
             </Routes>
         </Router>
 
