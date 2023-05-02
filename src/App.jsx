@@ -1,100 +1,28 @@
-import React, {useEffect, useState, useRef} from 'react';
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+import React, { useEffect, useState, useRef } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import MainContainer from './client/containers/mainContainer';
 import Navbar from './client/components/HomeScreen';
+import FrontPage from './Pages/FrontPage';
+import Signup from './Pages/Signup';
+import Search from './Pages/Search';
+import Login from './Pages/Login';
+import Home from './Pages/Home';
+import Error from './Pages/Error';
 
 import './styles.css';
 
 export default function App(props) {
-    //navbar can go in router if you want it to render all the time
-    return (
-        <Router>
-            <Routes>
-                <Route path = '/' element={<FrontPage/>}/>
-                <Route path = '/signup' element={<Signup/>}/>
-                <Route path = '/login' element = {<Login/>}/>
-                <Route path = '/search' element = {<Search/>}/>
-                <Route path = '/home' element = {<Home/>}/>
-                <Route path = '*' element = {<Error/>}/>
-            </Routes>
-        </Router>
-
-    )
-    
-
-
-
-
-
-
-
-
-    // const newUsername = useRef(null)
-    // const newPassword = useRef(null)
-
-
-    // const username = useRef(null)
-    // const password = useRef(null)
-    // const [isVisible, setIsVisible] = useState(false);
-    // function storeUser(){
-    //     console.log(newUsername.current.value)
-    //     console.log(newPassword.current.value)
-    //     fetch('/signup', {
-    //         method: 'POST',
-    //         headers: {
-    //           'Content-Type': 'application/json',
-    //         },
-    //         body: JSON.stringify({
-    //             username: newUsername.current.value,
-    //             password: newPassword.current.value
-    //         })
-    //     })
-    //     .then(res => console.log("sucessful adding the user"))
-    //     .catch(err => console.log(err))
-    // }
-
-    // function showComponent(event) {
-    //     console.log(username.current.value)
-    //     console.log(password.current.value)
-    //     fetch('/login', {
-    //         method: 'POST',
-    //         headers: {
-    //           'Content-Type': 'application/json',
-    //         },
-    //         body: JSON.stringify({
-    //             username: username.current.value,
-    //             password: password.current.value
-    //         })
-    //     })
-    //     .then(res => setIsVisible(res.json()))
-    //     .catch(err => console.log(err))
-    //     setIsVisible();
-    // }
-    // return (
-    //     <div id="App">
-
-    //         <div id="signup">
-    //             <input placeholder="Create a Username" ref={newUsername}/>
-    //             <input placeholder="Create a Password" ref={newPassword}/>
-    //             <button onClick={storeUser}>Signup</button>
-    //         </div>
-    //         <div>
-    //             <input placeholder="Username" ref={username}/>
-    //             <input placeholder="Password" ref={password}/>
-    //             <button onClick={showComponent}>Login</button>
-    //         </div>
-    //         {
-    //             isVisible ? <MainContainer/> : null
-    //         }
-    //     </div>
-
-    // )
-
-
-
-
-
-
-
+  //navbar can go in router if you want it to render all the time
+  return (
+    <Router>
+      <Routes>
+        <Route path='/' element={<FrontPage />} />
+        <Route path='/signup' element={<Signup />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/search' element={<Search />} />
+        <Route path='/home' element={<Home />} />
+        <Route path='*' element={<Error />} />
+      </Routes>
+    </Router>
+  );
 }
-
