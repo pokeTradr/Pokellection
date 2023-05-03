@@ -13,9 +13,8 @@ const Login = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch();
 
-
     const submitHandler = (e) => {
-        // console.log('ENTERING SUBMITHANDER FOR LOGIN FEATURE')
+        console.log('ENTERING SUBMITHANDER FOR LOGIN FEATURE')
         e.preventDefault();
         axios.post('/login', {
             username,
@@ -25,11 +24,9 @@ const Login = () => {
             console.log(response);
             if (response.data === true) {
                 console.log('entering the response for login')
-                // console.log(response);
                 navigate('/home')
             } else {
                 console.log('ENTERING USER NOT FOUND')
-                // return <p>USER NOT FOUND</p>
             }
         })
         .catch(err => {

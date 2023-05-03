@@ -9,8 +9,10 @@ const Signup = () => {
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    console.log('entering signup')
 
     const handleSignUp = (e) => {
+        console.log('entering handlesignup method')
         e.preventDefault()
         axios.post('/signup', {
             username,
@@ -19,7 +21,7 @@ const Signup = () => {
         .then((data) => {
             navigate('/home')
         })
-        .catch((error) => console.log('username already exists'))
+        .catch((error) => console.log('Error creating using'))
     }
     return (
         <div className='signupForm'>
