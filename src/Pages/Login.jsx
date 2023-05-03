@@ -6,19 +6,28 @@ import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
 
-    const [username, setUsername] = useState()
-    const [password, setPassword] = useState()
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
     
     const navigate = useNavigate()
 
     const submitHandler = (e) => {
+        // console.log('ENTERING SUBMITHANDER FOR LOGIN FEATURE')
         e.preventDefault();
         axios.post('/login', {
             username,
             password
         })
         .then(response => {
-            navigate('/home')
+            console.log(response);
+            if (response.data === true) {
+                console.log('entering the response for login')
+                // console.log(response);
+                navigate('/home')
+            } else {
+                console.log('ENTERING USER NOT FOUND')
+                // return <p>USER NOT FOUND</p>
+            }
         })
         .catch(err => {
             <p>User not found</p>
