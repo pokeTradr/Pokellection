@@ -1,5 +1,30 @@
 @import url('https://fonts.cdnfonts.com/css/pokemon-solid');
 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100%;
+    width: 100%;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+#root{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 
 #pokemonInfo {
     display: flex;
@@ -25,7 +50,53 @@
 }
 
 .front-page-container h1{
+    font-size: 800%;
     font-family: 'Pokemon Solid', sans-serif;     
     color: #FFCB05;
-    text-shadow: -1px 0 #3466AF, 0 1px #3466AF, 1px 0 #3466AF, 0 -1px #3466AF;
+    letter-spacing: 3px;
+    text-shadow: -10px 0 #3466AF, 0 6px #3466AF, 6px 0 #3466AF, 0 -5px #3466AF;
 }
+
+.front-page-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup_btn{
+    color: white;
+    font-size: 18px;
+    background-color: #3465affe;
+    height: 50px;
+    width: 120px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.signup_btn:hover{
+    background-color: #4677c0fe;
+}
+
+.login_btn{
+    color: #3465affe;
+    font-size: 18px;
+    background-color: #FFCB05;
+    height: 50px;
+    width: 120px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login_btn:hover{
+    background-color: #f4d557;
+
+}
+
+.buttons-container{
+    display: flex;
+    gap: 40px;
+}
+
