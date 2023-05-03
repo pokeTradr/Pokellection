@@ -52,4 +52,8 @@ userController.getUser = (req, res, next) => {
     });
 };
 
+userController.saveUser = (req, res, next) => {
+  
+}
+
 module.exports = userController;

@@ -21,9 +21,4 @@ const userSchema = new Schema({
   collection: { type: Array }
 });
 
-const deckSchema = new Schema({
-  cardArray: { type: Array }
-})
-
 module.exports = mongoose.model('User', userSchema);
-module.exports = mongoose.model('Deck', deckSchema);

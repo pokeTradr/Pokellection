@@ -45,6 +45,10 @@ app.post('/login', userController.getUser, (req, res) => {
   res.status(200).json(res.locals);
 });
 
+app.post('/save', userController.saveUser, (req, res) => {
+  res.status(200).send('Collection saved!')
+})
+
 app.use('*', (req, res) => {
   res.sendStatus(404);
 });
