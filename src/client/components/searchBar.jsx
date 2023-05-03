@@ -1,35 +1,33 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+import { pokemonCard } from '../../redux/currentCard';
+import { searchCard } from  '../../redux/currentCard'
+import { addCard } from '../../redux/collection';
+import { useDispatch, useSelector } from 'react-redux';
+
 
 export default function (props) {
-  const [searchInput, setSearchInput] = useState('');
-  const handlerChange = (e) => {
-    e.preventDefault();
-    setSearchInput(e.target.value);
-  };
 
+  const dispatch = useDispatch();
+  // const { username } = useSelector(state => state.user)
+
+  const { currentInput } = useSelector(state => state.currentCard);
+  const { cardVersions } = useSelector(state => state.currentCard);
+
+  
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('/getPokemon', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ name: searchInput }),
+    axios.post('/getPokemon', {
+      name: currentInput,
     })
-      .then((res) => {
-        console.log(res);
-        if (res.status == 200) {
-          return res.json();
-        } else {
-          return;
-        }
-      })
       .then((data) => {
         console.log('this is my data :', data);
-        data && props.setData(data);
+        dispatch(pokemonCard(data))
+        // props.setData(data);
+        // dispatch(get)
       });
-    //fetch imaginary endpoint from server with searchInput as req body
-    //promise chain
+    // fetch imaginary endpoint from server with searchInput as req body
+    // promise chain
     // setData(res)
   };
 
@@ -38,8 +36,7 @@ export default function (props) {
       <input
         type='text'
         placeholder='Start Searching...'
-        onChange={handlerChange}
-        value={searchInput}
+        onChange={(e) => dispatch(searchCard(e.target.value))}
       />
       <input type='submit' />
     </form>
