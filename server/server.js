@@ -37,11 +37,12 @@ app.get('/hello', (req, res) => {
 });
 
 app.post('/signup', userController.createUser, (req, res) => {
-  console.log('IS THISW ROKING');
+  console.log('successfully created user');
   res.status(200).send(res.locals.newUser);
 });
 
 app.post('/login', userController.getUser, (req, res) => {
+  console.log('found user in database')
   res.status(200).json(res.locals.truthy);
 });
 

@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import currentCardReducer from './currentCard'
-import DecklistCardReducer from './deckList'
+import deckListCardReducer from './deckList'
 import userReducer from './user'
 
 // Stores holding all the reducers for all states

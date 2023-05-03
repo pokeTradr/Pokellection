@@ -13,7 +13,7 @@ const Home = () => {
             <CardDetail />
             <PokemonCard />
         </div>
-    ) 
+    )
 }
 
 
