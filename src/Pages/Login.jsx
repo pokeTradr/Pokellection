@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
+import { storeUser } from '../redux/user';
+import { useDispatch, useSelector } from 'react-redux';
 
 
-
+// Verifies if user exists in the database. If it does, it will redirect to the home page
 const Login = () => {
 
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
-    
+    const { username } = useSelector(state => state.user)
+    const [password, setPassword] = useState('')    
     const navigate = useNavigate()
+    const dispatch = useDispatch();
+
 
     const submitHandler = (e) => {
         // console.log('ENTERING SUBMITHANDER FOR LOGIN FEATURE')
@@ -38,7 +41,7 @@ const Login = () => {
         <div className='login_container'>
             Log in
             <form onSubmit={submitHandler}>
-              <input type ='text' placeholder='Username' value={username} onChange={(e) => setUsername(e.target.value)}/>
+              <input type="text" id="Username" placeholder = 'Username' onChange={e => dispatch(storeUser(e.target.value))} />
               <input type = 'password' placeholder = 'Password' value={password} onChange={(e) => setPassword(e.target.value)}/>
               <button type='submit'>Login</button>
             </form>
