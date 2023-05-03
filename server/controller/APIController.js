@@ -1,8 +1,8 @@
 const fetch = require('node-fetch');
 const db = require('../models/pokemon_model');
-const pokemon = require('pokemontcgsdk');
-const akey = require('./config');
-pokemon.configure(akey);
+// const pokemon = require('pokemontcgsdk');
+
+// pokemon.configure(process.env.POKI_API_KEY);
 
 const APIController = {};
 

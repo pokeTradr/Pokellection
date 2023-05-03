@@ -1,51 +1,27 @@
 const express = require('express');
-const path = require('path');
-const APIController = require('./controller/APIController');
 const app = express();
 const PORT = 3000;
-const userController = require('./controller/userController');
 
+const signupRouter = require('./routes/signupRouter')
+const pokemonRouter = require('./routes/pokemonRouter')
+const loginRouter = require('./routes/loginRouter')
+require('dotenv').config()
 // app.use('/', express.static(path.join(__dirname,'')))
 app.use(express.json());
 
-// app.get('/', APIController.call, APIController.instantiateTable, (req, res) => {
-//   return res.status(200).send('random');
-// });
+//ROUTERS
+app.use('/api/signup', signupRouter);
+app.use('/api/pokemon', pokemonRouter);
+app.use('/api/login', loginRouter);
 
-// serves client request for a card
-app.post(
-  '/getPokemon',
-  APIController.getData,
-  APIController.pokemonAPIQuery,
-  (req, res) => {
-    // if the SQL database does not have the result, then redirect
-    console.log('ending the getPoke middleware');
-    if (Object.hasOwn(res.locals, 'selectedPokemon')) {
-      return res.status(200).json(res.locals.selectedPokemon);
-    } else {
-      return res.status(404).redirect('/');
-    }
-  }
-);
 
-app.get('/hello', (req, res) => {
-  console.log('made a request');
-  res.status(200).send('hello I am a response');
-});
 
-app.post("/signup", userController.createUser, (req, res) => {
-  console.log('IS THISW ROKING')
-  res.status(200).send(res.locals.newUser);
-})
-
-app.post("/login", userController.getUser, (req, res) => {
-  res.status(200).json(res.locals.truthy);
-})
-
+// CATCH ALL
 app.use('*', (req, res) => {
   res.sendStatus(404);
 });
 
+//GLOBAL ERROR HANDLER
 app.use((err, req, res, next) => {
   const defaultErr = {
     log: 'Express error handler hiiiiii caught unknown middleware error',
@@ -57,6 +33,8 @@ app.use((err, req, res, next) => {
   return res.status(errorObj.status).json(errorObj.message);
 });
 
+
+// SERVER
 app.listen(PORT, () => {
   console.log('listening on a port:', PORT);
 });
