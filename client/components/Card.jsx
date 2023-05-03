@@ -6,17 +6,15 @@ import { useNavigate } from 'react-router-dom';
 export default function Card(props) {
     const navigate = useNavigate();
 
-    const goTheFuckHome = () => {
+    const goHome = () => {
       window.alert('GO HOME!');
       navigate('/home');
     };
 
     return(
-    <div className="card">
-      <button onClick={goTheFuckHome}>Go Home</button>
+    <div>
+      <button onClick={goHome}>Go Home</button>
       <img src="https://tcg.pokemon.com/assets/img/parents-guide/about/en-us/SM11_55.jpg" className="card-image"></img>
-      <p>Price: $2</p>
-      <h1 className="text-primary text-4xl font-bold">I am using Tailwind</h1>
     </div>
     )
 }
