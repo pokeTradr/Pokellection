@@ -1,23 +1,26 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export const cardSlice = createSlice({
+
+// State management for keeping track of current card being displayed, and all of its different versions. 
+// State will be replaced by a new card every time a new search is made
+export const currentCardSlice = createSlice({
     name: 'currentCard',
     initialState: {
-        currentCard: [],
-        collection: []
+        cardVersions: [],
+        currentInput: ''
     },
     reducers: {
-        addCard: (state, action) => {
-            state.collection.push(action.payload);
+        pokemonCard: (state, action) => {
+            state.cardVersions = action.payload;
         },
-        getCard: (state, action) => {
-            state.currentCard[0] = action.payload;
+        searchCard: (state, action) => {
+            state.currentInput = action.payload;
         }
     }
 })
 
 
-export const { addCard, getCard } = cardSlice.actions
+export const { pokemonCard, searchCard } = currentCardSlice.actions
 
-export default cardSlice.reducer;
+export default currentCardSlice.reducer;
 
