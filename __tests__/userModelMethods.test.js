@@ -3,7 +3,6 @@
 
 const { MongoMemoryServer } = require('mongodb-memory-server-core');
 const mongoose = require('mongoose');
-const { it } = require('node:test');
 const User = require('../server/models/userModel');
 // const { exit } = require('process');
 
@@ -18,7 +17,6 @@ describe('mongo db tests', () => {
     const mongoUri = await mongo.getUri();
 
     await mongoose.connect(mongoUri);
-    // console.log('connected');
   });
 
   beforeEach(async () => {
@@ -72,7 +70,6 @@ describe('mongo db tests', () => {
       const result = await User.create(testUser);
     } catch (err) {
       const result = err;
-      //   console.log('the result:', result);
       //   console.log('message:_', result._message);
       expect(result._message).toEqual('User validation failed');
     }
