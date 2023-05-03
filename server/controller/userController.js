@@ -38,7 +38,7 @@ userController.getUser = (req, res, next) => {
       );
       console.log('PASSWORD MATCH: ', passwordMatch);
       res.locals.truthy = passwordMatch;
-      res.locals.userData = results.collection;
+      res.locals.userData = results.deckList;
       return next();
     })
     .catch((err) => {
@@ -53,9 +53,9 @@ userController.getUser = (req, res, next) => {
 };
 
 userController.saveUser = (req, res, next) => {
-  User.findOneAndUpdate({ username: req.body.username })
+  User.findOneAndUpdate({ username: req.body.username, deckList: req.body.deckList })
   .then((result) => {
-    res.locals.message = 'Collection saved!'
+    res.locals.message = 'deckList saved!'
     return next();
   })
   .catch((err) => {
