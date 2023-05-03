@@ -18,7 +18,7 @@ describe('mongo db tests', () => {
     const mongoUri = await mongo.getUri();
 
     await mongoose.connect(mongoUri);
-    console.log('connected');
+    // console.log('connected');
   });
 
   beforeEach(async () => {
