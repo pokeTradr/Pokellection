@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './client/index.js',
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js',
@@ -41,14 +41,15 @@ module.exports = {
   devServer: {
     hot: true,
     compress: true,
+    historyApiFallback: true,
     port: 8080,
     proxy: {
-      '/**': 'http://localhost:3000',
+      '/api': 'http://localhost:3000',
     },
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: './client/index.html',
     }),
     new MiniCssExtractPlugin(),
   ],
