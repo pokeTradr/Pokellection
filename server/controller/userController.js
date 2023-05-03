@@ -9,8 +9,10 @@ userController.createUser = (req, res, next) => {
   let { password } = req.body;
   bcrypt.genSalt(SALT_WORK_FACTOR, (err, salt) => {
     bcrypt.hash(password, salt, (err, hash) => {
+      console.log('inside of genSalt func')
       User.create({ username: username, password: hash })
         .then((data) => {
+          console.log('inside of .then in createUser middleware')
           res.locals.newUser = data;
           return next();
         })
@@ -53,6 +55,8 @@ userController.getUser = (req, res, next) => {
 };
 
 userController.saveUser = (req, res, next) => {
+  console.log('username: ', req.body.username)
+  console.log('deckList', req.body.deckList)
   User.findOneAndUpdate({ username: req.body.username, deckList: req.body.deckList })
   .then((result) => {
     res.locals.message = 'deckList saved!'

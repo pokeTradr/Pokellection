@@ -142,3 +142,13 @@ html {
 .submit_b{
     height: 36px;
 }
+
+#add_to_list_btn{
+    height: 30px;
+    width: 30px;
+}
+
+.collection{
+    display: flex;
+    
+}

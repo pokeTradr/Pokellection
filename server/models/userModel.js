@@ -4,7 +4,7 @@ require('dotenv').config();
 
 // for sswitching between test/dev
 // console.log(process.env);
-if (process.env.NODE_ENV !== 'test') {
+if (true) {
   mongoose.connect(process.env.mongoURI, {
     useNewURLParser: true,
     useUnifiedTopology: true,

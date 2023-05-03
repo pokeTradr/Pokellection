@@ -14,23 +14,27 @@ const Login = () => {
     const dispatch = useDispatch();
 
     const submitHandler = (e) => {
-        console.log('ENTERING SUBMITHANDER FOR LOGIN FEATURE')
+        // console.log('ENTERING SUBMITHANDLER FOR LOGIN FEATURE')
         e.preventDefault();
         axios.post('/login', {
             username,
             password
         })
         .then(response => {
-            console.log(response);
-            if (response.data === true) {
-                console.log('entering the response for login')
+            // console.log(response);
+            if (response.data.truthy === true) {
+                // console.log('entering the response for login')
+                // console.log(response.data.userData)
+                if(response.data.userData.length >= 1){
+                    dispatch(addCard(response.data.userData))
+                }
                 navigate('/home')
             } else {
                 console.log('ENTERING USER NOT FOUND')
             }
         })
         .catch(err => {
-            <p>User not found</p>
+            console.log('error logging into user')
         })
     }
     

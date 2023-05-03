@@ -47,7 +47,7 @@ app.post(
 
 app.post('/login', userController.getUser, (req, res) => {
   console.log('found user in database')
-  res.status(200).json(res.locals.truthy);
+  res.status(200).json(res.locals);
 });
 
 app.post('/save', userController.saveUser, (req, res) => {
