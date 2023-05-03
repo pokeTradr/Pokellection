@@ -3,7 +3,8 @@ const path = require('path');
 const APIController = require('./controller/APIController');
 const app = express();
 // change for testing
-const PORT = process.env.NODE_ENV === 'test' ? 3001 : 3000;
+// const PORT = process.env.NODE_ENV === 'test' ? 3001 : 3000;
+const PORT = 3000;
 const userController = require('./controller/userController');
 require('dotenv').config();
 

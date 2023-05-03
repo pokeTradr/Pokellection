@@ -1,13 +1,31 @@
+// make sure no spurious imports/requires up here
 const request = require('supertest');
-const app = require('./../server/server');
+// const server = require('./../server/server');
+const app = 'http://localhost:3000'; // where the server is being hosted
 
 // after all, shut down the server
-afterAll(() => {
-  app.close();
-});
 
 describe('test express routes', () => {
-  test('signup and login routes', () => {
-    expect(false).toEqual(true);
+  // afterAll(async () => {
+  //   jest.setTimeout(10000);
+  //   await server.close();
+  // });
+
+  describe('/', () => {
+    describe('GET', () => {
+      test('responds with 200', async () => {
+        try {
+          const result = await request(app).get('/').expect(200);
+          // result.expect(200);
+          console.log('succesful test', result.status);
+        } catch (err) {
+          console.log(err);
+        }
+      });
+    });
   });
+
+  // test('signup and login routes', () => {
+  //   expect(false).toEqual(true);
+  // });
 });

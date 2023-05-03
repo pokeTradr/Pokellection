@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const User = require('../server/models/userModel');
 // const { exit } = require('process');
 
-console.log(MongoMemoryServer);
+// console.log(MongoMemoryServer);
 
 describe('mongo db tests', () => {
   let mongo;
