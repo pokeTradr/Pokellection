@@ -38,6 +38,7 @@ userController.getUser = (req, res, next) => {
       );
       console.log('PASSWORD MATCH: ', passwordMatch);
       res.locals.truthy = passwordMatch;
+      res.locals.userData = results.collection;
       return next();
     })
     .catch((err) => {
