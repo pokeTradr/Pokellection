@@ -89,8 +89,8 @@ APIController.pokemonAPIQuery = (req, res, next) => {
         console.log(err);
         next({
           ...err,
-          message: 'error in API request',
-          log: 'error in the API req',
+          message: "error in pokemonAPIQuery middleware",
+          log: "error in pokemonAPIQuery middleware",
         });
       });
 };
