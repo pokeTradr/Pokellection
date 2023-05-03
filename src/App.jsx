@@ -14,7 +14,7 @@ export default function App(props) {
     function storeUser(){
         console.log(newUsername.current.value)
         console.log(newPassword.current.value)
-        fetch('/signup', {
+        fetch('/api/signup', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
