@@ -46,6 +46,7 @@
     "pg": "^8.10.0",
     "pokemontcgsdk": "^2.0.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.11.0"
   }
 }

@@ -1,12 +1,11 @@
 import React, {useEffect, useState, useRef} from 'react';
-import MainContainer from './client/containers/mainContainer';
+import MainContainer from './containers/mainContainer';
 
 import './styles.css';
 
 export default function App(props) {
     const newUsername = useRef(null)
     const newPassword = useRef(null)
-
 
     const username = useRef(null)
     const password = useRef(null)

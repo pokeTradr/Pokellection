@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import SearchBar from "../components/searchBar"
 import PokemonCard from "../components/pokemonCard"
-import CardDetail from "../components/cardDetail"
+import CardDetail from "../cardDetail"
 
 export default function MainContainer(props) {
   
