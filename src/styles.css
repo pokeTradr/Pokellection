@@ -1,3 +1,6 @@
+@import url('https://fonts.cdnfonts.com/css/pokemon-solid');
+
+
 #pokemonInfo {
     display: flex;
     flex-direction: row;
@@ -19,4 +22,10 @@
 #Price {
     margin-left: 200px;
     display: flex;
+}
+
+.front-page-container h1{
+    font-family: 'Pokemon Solid', sans-serif;     
+    color: #FFCB05;
+    text-shadow: -1px 0 #3466AF, 0 1px #3466AF, 1px 0 #3466AF, 0 -1px #3466AF;
 }
