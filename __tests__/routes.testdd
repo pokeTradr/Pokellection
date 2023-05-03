@@ -1,7 +1,0 @@
-// const { describe } = require("yargs")
-
-describe('test express routes', () => {
-  describe('signup and login routes', () => {
-    expect(false).toEqual(true);
-  });
-});
