@@ -42,8 +42,12 @@ app.post('/signup', userController.createUser, (req, res) => {
 });
 
 app.post('/login', userController.getUser, (req, res) => {
-  res.status(200).json(res.locals.truthy);
+  res.status(200).json(res.locals);
 });
+
+app.post('/save', userController.saveUser, (req, res) => {
+  res.status(200).send(res.locals.message);
+})
 
 app.use('*', (req, res) => {
   res.sendStatus(404);
