@@ -5,7 +5,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const collectionSlice = createSlice({
     name: 'collection',
     initialState: {
-        collection: []
+    
     },
     reducers: {
         addCard: (state, action) => {
