@@ -12,9 +12,8 @@ const Home = () => {
             <SearchBar />
             <CardDetail />
             <PokemonCard />
-
         </div>
-    ) 
+    )
 }
 
 

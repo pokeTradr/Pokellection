@@ -18,7 +18,7 @@ userController.createUser = (req, res, next) => {
           const errObj = {
             log: 'Error occurred in user.create',
             status: 400,
-            message: 'Error occurred',
+            message: 'Error while creating user',
           };
           return next(errObj);
         });
