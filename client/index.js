@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Card from "./components/Card.jsx";
 import Collections from "./components/Collections.jsx";
-import styles from './styles.css';
+import './styles.css'
 
 const router = createBrowserRouter([
   {
