@@ -2,18 +2,18 @@ import { createSlice } from "@reduxjs/toolkit";
 
 // State management for keeping track of current cards in collection 
 // New card will be added to state
-export const DecklistSlice = createSlice({
-    name: 'Decklist',
+export const deckListSlice = createSlice({
+    name: 'deckListSlice',
     initialState: {
-        Decklist: []
+        deckList: []
     },
     reducers: {
         addCard: (state, action) => {
-            state.Decklist.push(action.payload);
+            state.deckListSlice.push(action.payload);
         },  
     }
 })
 
-export const { addCard } = DecklistSlice.actions
+export const { addCard } = deckListSlice.actions
 
-export default DecklistSlice.reducer;
+export default deckListSlice.reducer;
