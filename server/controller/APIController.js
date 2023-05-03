@@ -49,17 +49,18 @@ APIController.instantiateTable = (req, res, next) => {
 
 // pokemontcg npm package
 APIController.pokemonAPIQuery = (req, res, next) => {
-  // if the response doesn't yet have the result
-  if (!Object.hasOwn(res.locals, 'selectedPokemon')) {
-    // console.log('API querying the api for', req.body.name);
     pokemon.card
       .where({ q: `name:${req.body.name}` })
       .then((result) => {
-        // TODO: improve filtering to get different editions
-        // currently taking the first result from the API response
-        if (result.data[0]) {
-          let r = result.data[0];
-          const data = {
+
+        // result has card:
+        if (result.data) {
+                  const outputArr = [];
+
+        // loop through result array
+        for (let i = 0; i < result.data.length; i++) {
+          const r = results.data[i];
+          let currentCard = {
             name: r.name,
             types: r.types,
             hp: r.hp,
@@ -67,20 +68,15 @@ APIController.pokemonAPIQuery = (req, res, next) => {
             images: r.images,
           };
 
-          // assign it to res.locals.selectedPokemon
-          res.locals.selectedPokemon = data;
+          // push current card into output array
+          outputArr.push(currentCard);
+        }
 
-          // update the db to include the new data
-          try {
-            const qstr = `INSERT INTO pokemonTable (pokemon_name, pokemon_type, hp, marketPrice, updatedDate, img) VALUES ('${data.name}', '${data.types[0]}',${data.hp}, ${data.cardmarket.prices.averageSellPrice}, '${data.cardmarket.updatedAt}', '${data.images.small}')`;
-            // console.log(qstr);
-            db.query(qstr)
-              .then((d) => console.log(d))
-              .catch((d) => console.log(d));
-          } catch (err) {
-            console.log(err);
-          }
-        } else {
+        // assign to res.locals.selectedPokemonArr
+        res.locals.selectedPokemonArr = outputArr;
+        }
+        
+        else {
           // not an error, but there's no result at db
           return next({
             message: 'error in API request',
@@ -97,9 +93,6 @@ APIController.pokemonAPIQuery = (req, res, next) => {
           log: 'error in the API req',
         });
       });
-  } else {
-    next();
-  }
 };
 
 // sql read
