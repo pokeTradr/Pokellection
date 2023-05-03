@@ -1,6 +1,14 @@
 .card {
-    background: beige;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     height: 400px;
     width: 200px;
+}
+
+.card-image {
+    height: auto;
+    width: 250px;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-around;
 }
