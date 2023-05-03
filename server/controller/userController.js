@@ -3,25 +3,30 @@ const gitHubUser = require('../models/gitHubModel');
 const db = require('../models/pokemon_model');
 const oAuthSessionModel = require('../models/oAuthSessionModel')
 require('dotenv').config();
+const bcrypt = require('bcrypt');
+
 
 const userController = {};
 
 userController.createUser = async (req, res, next) => {
   const { username } = req.body;
   let { password } = req.body;
+  const hash = await bcrypt.hash(password, 10);
+  console.log('hash:', hash)
+
   try {
     // create new user in mongo server
     const newUser = await User.create({
       username: username,
-      password: password,
+      password: hash,
     });
     const ssid = newUser._id.toString();
     res.locals.ssid = ssid;
 
-    // create a new use in POSTSQL server
+    // create a new user in POSTSQL server
     db.query(
       'INSERT INTO users (username, password, ssid) VALUES ($1, $2, $3)',
-      [username, password, ssid]
+      [username, hash, ssid]
     );
 
     next();
@@ -69,3 +74,4 @@ userController.getUser = (req, res, next) => {
 };
 
 module.exports = userController;
+

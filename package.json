@@ -23,15 +23,18 @@
     "@babel/core": "^7.21.5",
     "@babel/preset-env": "^7.21.5",
     "@babel/preset-react": "^7.18.6",
+    "autoprefixer": "^10.4.14",
     "babel-loader": "^9.1.2",
     "css-loader": "^6.7.3",
     "html-webpack-plugin": "^5.5.1",
     "mini-css-extract-plugin": "^2.7.5",
     "nodemon": "^2.0.22",
+    "pokemontcgsdk": "^2.0.0",
     "postcss": "^8.4.23",
     "postcss-loader": "^7.3.0",
-    "sass-loader": "^13.2.2",
+    "react-router-dom": "^6.11.0",
     "style-loader": "^3.3.2",
+    "tailwindcss": "^3.3.2",
     "webpack": "^5.81.0",
     "webpack-cli": "^5.0.2",
     "webpack-dev-server": "^4.13.3"
@@ -40,6 +43,7 @@
     "bcrypt": "^5.1.0",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",
+    "daisyui": "^2.51.6",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "mongoose": "^6.8.0",
@@ -47,9 +51,7 @@
     "passport": "^0.6.0",
     "passport-github": "^1.1.0",
     "pg": "^8.10.0",
-    "pokemontcgsdk": "^2.0.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.11.0"
+    "react-dom": "^18.2.0"
   }
 }
