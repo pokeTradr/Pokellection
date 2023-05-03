@@ -38,17 +38,31 @@ userController.getUser = (req, res, next) => {
       );
       console.log('PASSWORD MATCH: ', passwordMatch);
       res.locals.truthy = passwordMatch;
+      res.locals.userData = results.collection;
       return next();
     })
     .catch((err) => {
       console.log('THIS IS THE ERROR: ', err);
       const errObj = {
-        log: 'AN ERROR IN THE usercontroller.getuser',
+        log: 'error occurred in userController.getUser',
         status: 400,
         message: { err: 'chill' },
       };
       return next(errObj);
     });
 };
+
+userController.saveUser = (req, res, next) => {
+  User.findOneAndUpdate({ username: req.body.username })
+  .then((result) => {
+    res.locals.message = 'Collection saved!'
+    return next();
+  })
+  .catch((err) => {
+    const errObj = {
+      log: 'error occurred in userController.saveUser'
+    }
+  })
+}
 
 module.exports = userController;
