@@ -39,10 +39,13 @@
   "dependencies": {
     "bcrypt": "^5.1.0",
     "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "mongoose": "^6.8.0",
     "node-fetch": "^2.6.9",
+    "passport": "^0.6.0",
+    "passport-github": "^1.1.0",
     "pg": "^8.10.0",
     "pokemontcgsdk": "^2.0.0",
     "react": "^18.2.0",
