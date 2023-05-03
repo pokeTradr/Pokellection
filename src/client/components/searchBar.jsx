@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { pokemonCard } from '../../redux/currentCard';
 import { searchCard } from  '../../redux/currentCard'
-import { addCard } from '../../redux/collection';
+import { addCard } from '../../redux/Decklist';
 import { useDispatch, useSelector } from 'react-redux';
 
 

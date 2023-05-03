@@ -42,7 +42,7 @@ app.post('/signup', userController.createUser, (req, res) => {
 });
 
 app.post('/login', userController.getUser, (req, res) => {
-  res.status(200).json(res.locals);
+  res.status(200).json(res.locals.truthy);
 });
 
 app.post('/save', userController.saveUser, (req, res) => {

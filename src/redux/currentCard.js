@@ -19,7 +19,6 @@ export const currentCardSlice = createSlice({
     }
 })
 
-
 export const { pokemonCard, searchCard } = currentCardSlice.actions
 
 export default currentCardSlice.reducer;
