@@ -5,7 +5,7 @@ require('dotenv').config();
 // const MONGO_URI: 'mongodb+srv://yangyohan1:9Ev7mpUpSgDm6K78@cluster0.kiof2xb.mongodb.net/?retryWrites=true&w=majority';
 // console.log('mongoURI:', process.env.mongoURI);
 // REENABLE AFTER TESTS? find a way to do this when its NOT testing
-console.log(process.env);
+// console.log(process.env);
 if (process.env.NODE_ENV !== 'test') {
   mongoose.connect(process.env.mongoURI, {
     useNewURLParser: true,
