@@ -39,11 +39,11 @@ const Login = () => {
     
     return (
         <div className='login_container'>
-            Log in
+            <h1>Log in</h1>
             <form onSubmit={submitHandler}>
               <input type="text" id="Username" placeholder = 'Username' onChange={e => dispatch(storeUser(e.target.value))} />
-              <input type = 'password' placeholder = 'Password' value={password} onChange={(e) => setPassword(e.target.value)}/>
-              <button type='submit'>Login</button>
+              <input id='Password'type = 'password' placeholder = 'Password' value={password} onChange={(e) => setPassword(e.target.value)}/>
+              <button className='submit_b'type='submit'>Login</button>
             </form>
         </div>
     ) 
