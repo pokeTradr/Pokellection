@@ -2,6 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
 
+// Front page that will allow users to either sign up or log in
 function FrontPage() {
   const navigate = useNavigate();
 
