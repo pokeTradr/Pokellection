@@ -9,6 +9,8 @@ import ListStats from '../client/components/ListStats';
 // Page displayed after user successfully logs in or creates a new user
 const Home = () => {
   return (
+      <>
+
     <div className='home_page_container'>
       <Header />
       <SearchBar />
@@ -17,6 +19,7 @@ const Home = () => {
       <ListStats />
       <List />
     </div>
+    </>
   );
 };
 
