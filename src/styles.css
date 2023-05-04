@@ -324,13 +324,14 @@ video {
     color: #f4d557;
     animation-name: priceAnimation;
     animation-duration: 4s;
+    font-family: 'Pokemon Solid', sans-serif;
+    letter-spacing: 4px;
 }
 
 @keyframes priceAnimation {
-    0% {opacity: 0; bottom: 40%; right: 20%; font-size: 0;}
-    50% {opacity: 1; bottom: 65%; right: 65%; font-size: 50px;}
+    0% {opacity: 0; bottom: 40%; right: 40%; font-size: 0;}
+    50% {opacity: 1; bottom: 65%; right: 75%; font-size: 50px;}
     100% {opacity: 0; bottom: 100%; right: 100%; font-size: 0;}
-    
 }
 
 .deck-stats-container{
@@ -406,9 +407,9 @@ body.active-modal {
 
 .close-modal {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    padding: 5px 7px;
+    top: 63%;
+    right: 13%;
+    padding: 0.5em;
 }
 .signupForm {
     height: 450px;

@@ -48,7 +48,7 @@ export default function cardDetail(props) {
           src={cardVersions.data.images.small}
         ></img>
         <div className="price" key={Math.random()}>
-          Price: ${cardVersions.data.cardmarket.prices.averageSellPrice}
+          $ {cardVersions.data.cardmarket.prices.averageSellPrice}
         </div>
       </div>
     );
