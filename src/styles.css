@@ -169,33 +169,34 @@ video {
 
 .collection{
     position: absolute;
-    height: 60vh;
+    height: 40vh;
     width: 100vw;
     overflow-x: scroll;
     bottom: 0;
     left: .2%;
 }
 
-
-
 .card{
-    height: 300px;
-    width: 200px;
+    height: 200px;
+    width: 150px;
     display: flex;
     
 }
 
 .header {
+    margin-top: 16px;
     display: flex;
-    position: fixed;
-    top:0;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.headertitle h1 {
+.headertitle {
+    margin-left: 16px;
     color:#f4d557;
     font-family: 'Pokemon Solid', sans-serif; 
-    text-shadow: -7px 0 #3466AF, 0 4px #3466AF, 4px 0 #3466AF, 0 -3px #3466AF; 
+    text-shadow: -4px 0 #3466AF, 0 2px #3466AF, 2px 0 #3466AF, 0 -2px #3466AF; 
     letter-spacing: 4px;
+    font-size: 24px;
 }
 
 .searchBar {
@@ -211,4 +212,47 @@ video {
 .startingHome {
     text-align: center;
     font-size: 20px;
+}
+
+.home_page_container{
+    height: 100%;
+    width: 100%;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(121,9,9,1) 79%); 
+}
+
+.btn_container_header{
+    display: flex;
+    gap: 16px;
+    margin-right: 16px;
+}
+
+.deletecollection-btn{
+    color: #3465affe;
+    font-size: 12px;
+    background-color: #FFCB05;
+    height: 32px;
+    width: 140px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.deletecollection-btn:hover{
+    background-color: #f4d557;
+}
+
+.collection-btn{
+    color: white;
+    font-size: 12px;
+    background-color: #3465affe;
+    height: 32px;
+    width: 80px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.collection-btn:hover{
+    background-color: #4677c0fe;
 }

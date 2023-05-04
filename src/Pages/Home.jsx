@@ -10,7 +10,7 @@ import Header from '../client/components/Header';
 // Page displayed after user successfully logs in or creates a new user
 const Home = () => {
     return (
-        <div>
+        <div className='home_page_container'>
             <Header />
             <SearchBar />
             <CardDetail />
