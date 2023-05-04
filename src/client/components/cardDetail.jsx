@@ -38,13 +38,13 @@ export default function cardDetail(props){
     
 
     if (cardVersions.length === 0) {
-        return <div>
-            Test
+        return <div className='startingHome'>
+            Start adding to you collection!
         </div>
     } 
     
     if (cardVersions.length !== 0) {
-        return <div>
+        return <div id='cardDetails'>
             Name: {cardVersions.data.name}
             <img src = {cardVersions.data.images.small}></img>
             Price: {cardVersions.data.cardmarket.prices.averageSellPrice}
@@ -54,45 +54,3 @@ export default function cardDetail(props){
         </div>
     } 
 }
-
-
-// import React, { useEffect, useRef } from 'react'
-// import { useSelector } from 'react-redux';
-
-// export default function cardDetail(props){
-//     const cardVersions = useSelector(state => state.currentCard.cardVersions);
-//     const value = useRef(true)
-
-//     useEffect(() => {
-//         if(value === true){
-//             value.current = false;
-//             return;
-//         }
-
-//         return ()=>{
-//             <div>
-//             Name: {cardVersions.data.name}
-//             <img src = {cardVersions.data.images.small}></img>
-//             Price: {cardVersions.data.cardmarket.prices.averageSellPrice}
-//             Types: {cardVersions.data.cardmarket.types}
-
-//         </div>
-//         }
-//     }, [cardVersions])
-
-
-
-//     // if (cardVersions.length === 0) {
-//     //     return <div>
-//     //         Test
-//     //     </div>
-//     // } 
-    
-//     // if (cardVersions.length !== 0) {
-//     //     return <div>
-//     //         Name: {cardVersions.data.name}
-//     //         <img src = {cardVersions.data.images.small}></img>
-
-//     //     </div>
-//     // } 
-// }
