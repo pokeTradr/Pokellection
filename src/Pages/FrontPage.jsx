@@ -11,7 +11,7 @@ function FrontPage() {
     <div className='front-page-container'>
       <video src={videoBG} autoPlay muted loop />
       <div className='front-page-interface'>
-        <h1>PoKéllectioN</h1>
+        <h1 className='pokellection_title'>PoKéllectioN</h1>
         <div className='buttons-container'>
           <button className='signup_btn' onClick={() => navigate('./Signup')}>
             Sign Up
