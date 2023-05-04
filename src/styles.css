@@ -257,13 +257,20 @@ video {
     background-color: #4677c0fe;
 }
 
+.deck-stats-container{
+    z-index: 999;
+}
 .deck-type-icon {
     height: 2em;
+    width:2em;
 }
 
 .deck-type-container {
+    position:relative;
+    top:100px;
     width:100%;
     display: flex;
-    flex-direction: row;
-    align-items: centers;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }

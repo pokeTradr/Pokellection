@@ -9,7 +9,7 @@ function analyzeDeck(decklist) {
   const totalValue = decklist.reduce((acc, el) => {
     return acc + el.cardmarket.prices.averageSellPrice;
   }, 0);
-  console.log(totalValue);
+  console.log('totalValue of Collection:', totalValue);
   // #cards by type
   const cardTypes = {};
   decklist.map((el) => {
@@ -20,8 +20,10 @@ function analyzeDeck(decklist) {
     });
   });
   console.log(cardTypes);
-  const iconsToRender = Object.keys(cartTypes).map((type) => {
-    return Icons[type] ? <img src={Icons[type]} className='deckIcon' /> : null;
+  const iconsToRender = Object.keys(cardTypes).map((type) => {
+    return Icons[type] ? (
+      <img src={Icons[type]} className='deck-type-icon' />
+    ) : null;
   });
 
   return (
@@ -41,6 +43,7 @@ function List() {
       {list.map((el, index) => (
         <DeckItem pokemon={el} index={index + 1} listLength={list.length} />
       ))}
+      {analyzeDeck(list)}
     </div>
   );
 }
