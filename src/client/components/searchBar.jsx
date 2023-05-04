@@ -31,10 +31,10 @@ export default function (props) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className='form' onSubmit={handleSubmit}>
       <input className='searchBar'
         type='text'
-        placeholder='Start Searching...'
+        placeholder='Search Pokemon'
         onChange={(e) => dispatch(searchCard(e.target.value))}
       />
       <input type='submit' />
