@@ -42,11 +42,8 @@ export default function cardDetail(props) {
 
   if (cardVersions.length !== 0) {
     return (
-      <div>
-        Name: {cardVersions[0].data.name}
+      <div className='pokemon_img'>
         <img src={cardVersions[0].data.images.small}></img>
-        Price: {cardVersions[0].data.cardmarket.prices.averageSellPrice}
-        Types: {cardVersions[0].data.types[0]}
         <button id='add_to_list_btn' onClick={addToCollectionHandler}></button>
       </div>
     );
