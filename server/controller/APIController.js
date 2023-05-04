@@ -66,7 +66,7 @@ APIController.pokemonAPIQuery = (req, res, next) => {
             hp: r.hp,
             cardmarket: r.cardmarket,
             images: {
-              // large: false,
+              large: false,
               ...r.images,
             },
           };
