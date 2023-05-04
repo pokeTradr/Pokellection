@@ -256,3 +256,14 @@ video {
 .collection-btn:hover{
     background-color: #4677c0fe;
 }
+
+.deck-type-icon {
+    height: 2em;
+}
+
+.deck-type-container {
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    align-items: centers;
+}

@@ -1,5 +1,5 @@
 import Dark from './Dark.png';
-import Electric from './Electric.png';
+import Lightning from './Electric.png';
 import Fairy from './Fairy.png';
 import Fighting from './Fighting.png';
 import Ground from './Ground.png';
@@ -10,9 +10,20 @@ import Psychic from './Psychic.png';
 import Rock from './Rock.png';
 import Steel from './Steel.png';
 import Water from './Water.png';
+import Fire from './Fire.png';
 
 export default {
-  Dark: Dark,
-  Electric: Electric,
-  Fairy: Fairy,
+  Dark,
+  Lightning,
+  Fairy,
+  Fighting,
+  Ground,
+  // Fire,
+  Ice,
+  Normal,
+  Poison,
+  Psychic,
+  Rock,
+  Steel,
+  Water,
 };
