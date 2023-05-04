@@ -100,6 +100,7 @@ video {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    box-shadow: 2px 2px 5px black;
 }
 
 .signup_btn:hover{
@@ -115,6 +116,7 @@ video {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    box-shadow: 2px 2px 5px black;
 }
 
 .login_btn:hover{
@@ -130,18 +132,19 @@ video {
 .login_container{
     height: 450px;
     width: 300px;
-    background-color: #f4d557;
+    background-color: #D3D3D3;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
+    border: 1px solid black;
+    /* box-shadow: 2px 2px 5px black;     */
 }
 
 .login_container h1{
     color:#f4d557;
-    font-size: 50px;
+    font-size: 94px;
     font-family: 'Pokemon Solid', sans-serif; 
     text-shadow: -7px 0 #3466AF, 0 4px #3466AF, 4px 0 #3466AF, 0 -3px #3466AF; 
     letter-spacing: 4px;
@@ -161,13 +164,23 @@ video {
     height: 36px;
     width: 200px;
     border-radius: 24px;
-    border: none;
+    border: 2px solid #5A5A5A;
     padding: 10px;
+    box-shadow: 1px 1px 1px grey;
+    /* font-family: 'Pokemon Solid'; */
+    font-weight: 100000;
 }
 
 
 .submit_b{
     height: 36px;
+    box-shadow: 1px 1px 1px grey;
+    /* font-family: 'Pokemon Solid'; */
+    cursor: pointer;
+}
+
+.submit_b:active {
+    transform: scale(0.95);
 }
 
 #add_to_list_btn{
@@ -213,7 +226,7 @@ video {
     font-size: 16px;
     height: 30px;
     padding: 16px 38px;
-    border: 1px solid #f4d557;
+    border: 2px solid #f4d557;
     border-radius: 16px;
     background-color: transparent;
 }
@@ -252,6 +265,10 @@ video {
     cursor: pointer;
 }
 
+.deletecollection-btn:active {
+    transform: scale(0.95);
+}
+
 .deletecollection-btn:hover{
     background-color: #f4d557;
 }
@@ -265,6 +282,10 @@ video {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.collection-btn:active {
+    transform: scale(0.95);
 }
 
 .collection-btn:hover{
@@ -327,3 +348,56 @@ video {
     align-items: flex-end;
     justify-content: center;
 }
+
+.signupForm {
+    height: 450px;
+    width: 300px;
+    background-color: #D3D3D3;
+    border: 1px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+}
+
+.signupForm h1{
+    color:#f4d557;
+    font-size: 80px;
+    font-family: 'Pokemon Solid', sans-serif; 
+    text-shadow: -7px 0 #3466AF, 0 4px #3466AF, 4px 0 #3466AF, 0 -3px #3466AF; 
+    letter-spacing: 4px;
+}
+
+.signupForm form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.login_btn:active {
+    transform: scale(0.95);
+}
+
+.signup_btn:active {
+    transform: scale(0.95);
+}
+
+#searchForm {
+    height:100%
+}
+
+#searchBarContainer {
+    height: 2.2em
+}
+
+#searchSubmitBtn {
+    background-image: url("https://i.ibb.co/C0cLH5V/pngegg.png")
+}
+
+#searchSubmitBtn:active {
+    transform: scale(0.95);
+
+}
+
