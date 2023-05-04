@@ -18,12 +18,10 @@ const Header = () => {
 
     return (
       <div className="header"> 
-        <span className="headertitle"> <h1>PoKéllectioN</h1> </span>
-        <div>
-        <button className="deletecollection-btn"onClick={() => dispatch(resetDecklist())}> Delete Entire Collection </button>
-        </div>
-        <div>
-        <button className="Collection-btn" onClick={() => handleClickRouter("/")}> Sign <output></output> </button>
+        <h1 className="headertitle"> PoKéllectioN</h1>
+        <div className="btn_container_header">
+          <button className="deletecollection-btn"onClick={() => dispatch(resetDecklist())}> Delete Entire Collection </button>
+          <button className="collection-btn" onClick={() => handleClickRouter("/")}> Sign Out<output></output> </button>
         </div>
       </div>
     );
