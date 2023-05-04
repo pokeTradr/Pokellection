@@ -10,7 +10,7 @@ export const deckListSlice = createSlice({
     reducers: {
         addCard: (state, action) => {
             state.list.push(action.payload);
-        },  
+        }  
     }
 })
 

@@ -18,6 +18,7 @@ export default function cardDetail(props){
     useEffect(() => {
         if(val.current == true){
             val.current = false;
+            // dispatch(addCard(response.data.userData))
             return;
         }
 

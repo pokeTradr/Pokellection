@@ -8,6 +8,8 @@ function List() {
 
     return (
     <div className='collection'>
+        {console.log('list: ', list)};
+        {console.log('list[0]: ', list[0])};
         {list.map(el => <DeckItem pokemon={el}/>)}
     </div>
     )

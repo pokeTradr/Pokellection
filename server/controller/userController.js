@@ -55,10 +55,12 @@ userController.getUser = (req, res, next) => {
 };
 
 userController.saveUser = (req, res, next) => {
+  console.log('in the updateList middleware')
   console.log('username: ', req.body.username)
   console.log('deckList', req.body.deckList)
-  User.findOneAndUpdate({ username: req.body.username, deckList: req.body.deckList })
+  User.findOneAndUpdate({ username: req.body.username }, {deckList: req.body.deckList}, {new : true})
   .then((result) => {
+    console.log('decklist saved')
     res.locals.message = 'deckList saved!'
     return next();
   })
