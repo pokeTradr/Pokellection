@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles.css';
-import videoBG from '../../src/assets/team-rocket.mp4';
+import videoBG from '../assets/team-rocket.mp4';
 
 // Front page that will allow users to either sign up or log in
 function FrontPage() {
@@ -9,7 +9,7 @@ function FrontPage() {
 
   return (
     <div className='front-page-container'>
-      <video src={videoBG} muted loop />
+      <video src={videoBG} autoPlay muted loop />
       <div className='front-page-interface'>
         <h1>PoKéllectioN</h1>
         <div className='buttons-container'>
