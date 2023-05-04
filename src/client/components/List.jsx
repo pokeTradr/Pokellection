@@ -10,7 +10,7 @@ function List() {
     <div className='collection'>
         {console.log('list: ', list)};
         {console.log('list[0]: ', list[0])};
-        {list.map((el,index) => <DeckItem pokemon={el} index = {index + 1} list = {list}/>)}
+        {list.map((el,index) => <DeckItem pokemon={el} index = {index + 1} list = {list} deleteIndex = {index}/>)}
     </div>
     )
 }
