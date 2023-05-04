@@ -28,7 +28,7 @@ const Signup = () => {
             Create User
             <form onSubmit={handleSignUp}>
             <input type="text" id="Username" placeholder = 'Username' onChange={e => dispatch(storeUser(e.target.value))} />
-            <input type="text" id="password" placeholder = 'Passowrd' onChange={e => setPassword((e.target.value))} />
+            <input type="text" id="password" placeholder = 'Password' onChange={e => setPassword((e.target.value))} />
 =            <input className='submit_btn' type="submit"/>
             </form>
         </div>

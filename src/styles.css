@@ -181,4 +181,34 @@ video {
 .card{
     height: 300px;
     width: 200px;
+    display: flex;
+    
+}
+
+.header {
+    display: flex;
+    position: fixed;
+    top:0;
+}
+
+.headertitle h1 {
+    color:#f4d557;
+    font-family: 'Pokemon Solid', sans-serif; 
+    text-shadow: -7px 0 #3466AF, 0 4px #3466AF, 4px 0 #3466AF, 0 -3px #3466AF; 
+    letter-spacing: 4px;
+}
+
+.searchBar {
+    align-items: center;
+    display: grid; 
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 20px;
+    top:0%
+}
+
+.startingHome {
+    text-align: center;
+    font-size: 20px;
 }
