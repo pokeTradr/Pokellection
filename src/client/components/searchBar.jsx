@@ -10,15 +10,16 @@ export default function (props) {
   const dispatch = useDispatch();
   // const { username } = useSelector(state => state.user)
 
-  const { currentInput } = useSelector(state => state.currentCard);
+  // const { currentInput } = useSelector(state => state.currentCard);
   const { cardVersions } = useSelector(state => state.currentCard);
 
+  const [input, setInput] = useState('');
 
   
   const handleSubmit = (e) => {
     e.preventDefault();
     axios.post('/getPokemon', {
-      name: currentInput,
+      name: input,
     })
       .then((data) => {
         console.log('this is my data :', data);
@@ -36,7 +37,7 @@ export default function (props) {
       <input className='searchBar'
         type='text'
         placeholder='Search Pokemon'
-        onChange={(e) => dispatch(searchCard(e.target.value))}
+        onChange={(e) => setInput(e.target.value)}
       />
       <input type='submit' />
     </form>
