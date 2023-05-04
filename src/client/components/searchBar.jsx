@@ -31,13 +31,24 @@ export default function (props) {
   };
 
   return (
-    <form className='form' onSubmit={handleSubmit}>
+    <>
+    <div id='searchBarContainer'>
+    <form className='form' id='searchForm' onSubmit={handleSubmit}>
       <input className='searchBar'
         type='text'
         placeholder='Search Pokemon'
         onChange={(e) => dispatch(searchCard(e.target.value))}
       />
-      <input type='submit' />
+      {/* <a href="javascript:document.myform.submit()" onClick={return } */}
+      {/* // <img id='pokeball' src="https://i.ibb.co/C0cLH5V/pngegg.png" alt="pngegg" border="0" onClick={}></img> */}
+      <input id='searchSubmitBtn' type='image' src='https://i.ibb.co/C0cLH5V/pngegg.png' value='submit' />
     </form>
+    </div>
+    </>
   );
 }
+
+
+// <a href="https://ibb.co/7yfh1Jr"><img src="https://i.ibb.co/C0cLH5V/pngegg.png" alt="pngegg" border="0"></a><br /><a target='_blank' href='https://imgbb.com/'>add image to google</a><br />
+
+// background-image: url("../../media/examples/lizard.png");
