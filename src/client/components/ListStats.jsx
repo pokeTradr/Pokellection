@@ -28,7 +28,7 @@ function ListStats() {
 
   return (
     <div className='deck-stats-container'>
-      <div>Total Deck Value: {totalValue}</div>
+      {/* <div className='totalValue'>Total Deck Value: {totalValue}</div> */}
       <div className='deck-type-container'>{iconsToRender}</div>
     </div>
   );
