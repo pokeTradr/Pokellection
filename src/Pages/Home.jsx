@@ -2,6 +2,7 @@ import React from 'react';
 import SearchBar from '../client/components/searchBar';
 import CardDetail from '../client/components/cardDetail';
 import PokemonCard from '../client/components/pokemonCard';
+import List from '../client/components/List.jsx'
 
 
 
@@ -12,6 +13,7 @@ const Home = () => {
             <SearchBar />
             <CardDetail />
             <PokemonCard />
+            <List/>
         </div>
     )
 }
