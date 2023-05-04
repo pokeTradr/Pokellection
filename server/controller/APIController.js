@@ -7,7 +7,7 @@ const pokemon = require('pokemontcgsdk');
 pokemon.configure({ apiKey: process.env.pokeAPIKey });
 
 const APIController = {};
-
+// vanilla request to the API
 APIController.call = (req, res, next) => {
   fetch('https://api.pokemontcg.io/v2/cards/')
     .then((data) => data.json())
@@ -24,7 +24,7 @@ APIController.call = (req, res, next) => {
       return next(errorObj);
     });
 };
-
+// initializes SQL table
 APIController.instantiateTable = (req, res, next) => {
   const data = res.locals.pokemonData.data;
   // console.log('length: ', data.length);
@@ -47,6 +47,7 @@ APIController.instantiateTable = (req, res, next) => {
   return next();
 };
 
+// pokemontcg npm package
 APIController.pokemonAPIQuery = (req, res, next) => {
   // if the response doesn't yet have the result
   if (!Object.hasOwn(res.locals, 'selectedPokemon')) {
@@ -101,6 +102,7 @@ APIController.pokemonAPIQuery = (req, res, next) => {
   }
 };
 
+// sql read
 APIController.getData = (req, res, next) => {
   const name = req.body.name;
   console.log('name is currently: ', name);
