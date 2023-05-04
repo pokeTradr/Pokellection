@@ -32,7 +32,7 @@ export default function (props) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input
+      <input className='searchBar'
         type='text'
         placeholder='Start Searching...'
         onChange={(e) => dispatch(searchCard(e.target.value))}

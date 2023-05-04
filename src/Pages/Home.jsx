@@ -3,6 +3,7 @@ import SearchBar from '../client/components/searchBar';
 import CardDetail from '../client/components/cardDetail';
 import PokemonCard from '../client/components/pokemonCard';
 import List from '../client/components/List.jsx'
+import Header from '../client/components/Header';
 
 
 
@@ -10,6 +11,7 @@ import List from '../client/components/List.jsx'
 const Home = () => {
     return (
         <div>
+            <Header />
             <SearchBar />
             <CardDetail />
             <PokemonCard />
