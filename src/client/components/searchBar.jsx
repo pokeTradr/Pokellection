@@ -13,6 +13,7 @@ export default function (props) {
   const { currentInput } = useSelector(state => state.currentCard);
   const { cardVersions } = useSelector(state => state.currentCard);
 
+
   
   const handleSubmit = (e) => {
     e.preventDefault();

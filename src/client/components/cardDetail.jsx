@@ -1,7 +1,7 @@
-import React, { useEffect, useRef } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { addCard } from '../../redux/DeckList';
-import axios from 'axios';
+import React, { useEffect, useRef } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { addCard } from "../../redux/DeckList";
+import axios from "axios";
 
 export default function cardDetail(props) {
   const { cardVersions } = useSelector((state) => state.currentCard);
@@ -22,17 +22,17 @@ export default function cardDetail(props) {
       return;
     }
 
-    console.log('this is list: ', list);
+    console.log("this is list: ", list);
     axios
-      .post('/save', {
+      .post("/save", {
         username,
         deckList: list,
       })
       .then((res) => {
-        console.log('collection saved to the database');
+        console.log("collection saved to the database");
       })
       .catch((err) => {
-        console.log('error saving collection to database');
+        console.log("error saving collection to database");
       });
   }, [list]);
 
@@ -42,8 +42,14 @@ export default function cardDetail(props) {
 
   if (cardVersions.length !== 0) {
     return (
-      <div className='pokemon_img'>
-        <img onClick={addToCollectionHandler} src={cardVersions.data.images.small}></img>
+      <div  className="pokemon_img">
+        <img
+          onClick={addToCollectionHandler}
+          src={cardVersions.data.images.small}
+        ></img>
+        <div className="price" key={Math.random()}>
+          Price: ${cardVersions.data.cardmarket.prices.averageSellPrice}
+        </div>
       </div>
     );
   }
