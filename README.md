@@ -13,4 +13,4 @@ Built using:
 
 ### Catch em all!
 
-contributors: Ijoo, YoHan, Wayland, Kenny and Kelvin
+contributors: Wayland, Andrew, Patryk & Wayne

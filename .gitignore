@@ -133,3 +133,5 @@ dist
 
 .config.js
 .env
+
+*.mp4
