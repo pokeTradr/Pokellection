@@ -59,27 +59,31 @@ APIController.pokemonAPIQuery = (req, res, next) => {
         // currently taking the first result from the API response
         if (result.data[0]) {
           let r = result.data[0];
+          console.log(r.images);
           const data = {
             name: r.name,
             types: r.types,
             hp: r.hp,
             cardmarket: r.cardmarket,
-            images: r.images,
+            images: {
+              // large: false,
+              ...r.images,
+            },
           };
 
           // assign it to res.locals.selectedPokemon
           res.locals.selectedPokemon = data;
 
           // update the db to include the new data
-          try {
-            const qstr = `INSERT INTO pokemonTable (pokemon_name, pokemon_type, hp, marketPrice, updatedDate, img) VALUES ('${data.name}', '${data.types[0]}',${data.hp}, ${data.cardmarket.prices.averageSellPrice}, '${data.cardmarket.updatedAt}', '${data.images.small}')`;
-            // console.log(qstr);
-            db.query(qstr)
-              .then((d) => console.log(d))
-              .catch((d) => console.log(d));
-          } catch (err) {
-            console.log(err);
-          }
+          // try {
+          //   const qstr = `INSERT INTO pokemonTable (pokemon_name, pokemon_type, hp, marketPrice, updatedDate, img) VALUES ('${data.name}', '${data.types[0]}',${data.hp}, ${data.cardmarket.prices.averageSellPrice}, '${data.cardmarket.updatedAt}', '${data.images.small}')`;
+          //   // console.log(qstr);
+          //   db.query(qstr)
+          //     .then((d) => console.log(d))
+          //     .catch((d) => console.log(d));
+          // } catch (err) {
+          //   console.log(err);
+          // }
         } else {
           // not an error, but there's no result at db
           return next({
