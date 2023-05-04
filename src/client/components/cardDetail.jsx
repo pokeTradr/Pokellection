@@ -43,7 +43,7 @@ export default function cardDetail(props) {
   if (cardVersions.length !== 0) {
     return (
       <div className='pokemon_img'>
-        <img src={cardVersions[0].data.images.small}></img>
+        <img src={cardVersions.data.images.small}></img>
         <button id='add_to_list_btn' onClick={addToCollectionHandler}></button>
       </div>
     );
