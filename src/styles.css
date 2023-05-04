@@ -169,7 +169,7 @@ video {
 
 .collection{
     position: absolute;
-    height: 40vh;
+    height: 37vh;
     width: 100vw;
     overflow-x: scroll;
     bottom: 0;
@@ -200,13 +200,19 @@ video {
 }
 
 .searchBar {
-    align-items: center;
-    display: grid; 
-    justify-content: center;
-    align-items: center;
     text-align: center;
-    font-size: 20px;
-    top:0%
+    color: #f4d557;
+    font-size: 16px;
+    height: 30px;
+    padding: 16px 38px;
+    border: 1px solid #f4d557;
+    border-radius: 16px;
+    background-color: transparent;
+}
+
+.searchBar:focus{
+    border: none;
+    outline: solid 1px #3466AF;
 }
 
 .startingHome {
@@ -255,4 +261,22 @@ video {
 
 .collection-btn:hover{
     background-color: #4677c0fe;
+}
+
+.form{
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.pokemon_img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.pokemon_img img{
+    margin-top: 25px;
+    height: 250px;
 }
