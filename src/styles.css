@@ -218,7 +218,7 @@ video {
     font-size: 16px;
     height: 30px;
     padding: 16px 38px;
-    border: 1px solid #f4d557;
+    border: 2px solid #f4d557;
     border-radius: 16px;
     background-color: transparent;
 }
@@ -257,6 +257,10 @@ video {
     cursor: pointer;
 }
 
+.deletecollection-btn:active {
+    transform: scale(0.95);
+}
+
 .deletecollection-btn:hover{
     background-color: #f4d557;
 }
@@ -270,6 +274,10 @@ video {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.collection-btn:active {
+    transform: scale(0.95);
 }
 
 .collection-btn:hover{
@@ -296,6 +304,24 @@ video {
     border:1px solid rgba(71, 67, 67, 0.459);
     border-radius: 5px;
     cursor: pointer;
+}
+
+.deck-stats-container{
+    z-index: 999;
+}
+.deck-type-icon {
+    height: 2em;
+    width:2em;
+}
+
+.deck-type-container {
+    /* position:relative; */
+    /* top:100px; */
+    /* width:100%; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
 }
 
 .signupForm {
@@ -332,3 +358,21 @@ video {
 .signup_btn:active {
     transform: scale(0.95);
 }
+
+#searchForm {
+    height:100%
+}
+
+#searchBarContainer {
+    height: 2.2em
+}
+
+#searchSubmitBtn {
+    background-image: url("https://i.ibb.co/C0cLH5V/pngegg.png")
+}
+
+#searchSubmitBtn:active {
+    transform: scale(0.95);
+
+}
+
