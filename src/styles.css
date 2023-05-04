@@ -49,12 +49,20 @@ html {
     display: flex;
 }
 
-.front-page-container h1{
+.pokellection_title{
     font-size: 800%;
     font-family: 'Pokemon Solid', sans-serif;     
     color: #FFCB05;
     letter-spacing: 3px;
     text-shadow: -10px 0 #3466AF, 0 6px #3466AF, 6px 0 #3466AF, 0 -5px #3466AF;
+    margin-bottom: 20px;
+    animation-name: titleAnimation;
+    animation-duration: 3s;
+}
+
+@keyframes titleAnimation {
+    0% {font-size: 0; opacity: 0;}
+    100% {font-size: 800%; opacity: 1;}
 }
 
 .front-page-container {
@@ -78,8 +86,6 @@ html {
 }
 
 video {
-    /* width: 100%; */
-    height: 100%;
     object-fit:cover;
 }
 
@@ -92,6 +98,7 @@ video {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    box-shadow: 2px 2px 5px black;
 }
 
 .signup_btn:hover{
@@ -107,6 +114,7 @@ video {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    box-shadow: 2px 2px 5px black;
 }
 
 .login_btn:hover{
@@ -122,18 +130,19 @@ video {
 .login_container{
     height: 450px;
     width: 300px;
-    background-color: #f4d557;
+    background-color: #D3D3D3;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
+    border: 1px solid black;
+    /* box-shadow: 2px 2px 5px black;     */
 }
 
 .login_container h1{
     color:#f4d557;
-    font-size: 50px;
+    font-size: 94px;
     font-family: 'Pokemon Solid', sans-serif; 
     text-shadow: -7px 0 #3466AF, 0 4px #3466AF, 4px 0 #3466AF, 0 -3px #3466AF; 
     letter-spacing: 4px;
@@ -153,13 +162,23 @@ video {
     height: 36px;
     width: 200px;
     border-radius: 24px;
-    border: none;
+    border: 2px solid #5A5A5A;
     padding: 10px;
+    box-shadow: 1px 1px 1px grey;
+    /* font-family: 'Pokemon Solid'; */
+    font-weight: 100000;
 }
 
 
 .submit_b{
     height: 36px;
+    box-shadow: 1px 1px 1px grey;
+    /* font-family: 'Pokemon Solid'; */
+    cursor: pointer;
+}
+
+.submit_b:active {
+    transform: scale(0.95);
 }
 
 #add_to_list_btn{
@@ -169,7 +188,7 @@ video {
 
 .collection{
     position: absolute;
-    height: 37vh;
+    height: 26vh;
     width: 100vw;
     overflow-x: scroll;
     bottom: 0;
@@ -205,7 +224,7 @@ video {
     font-size: 16px;
     height: 30px;
     padding: 16px 38px;
-    border: 1px solid #f4d557;
+    border: 2px solid #f4d557;
     border-radius: 16px;
     background-color: transparent;
 }
@@ -244,6 +263,10 @@ video {
     cursor: pointer;
 }
 
+.deletecollection-btn:active {
+    transform: scale(0.95);
+}
+
 .deletecollection-btn:hover{
     background-color: #f4d557;
 }
@@ -259,6 +282,10 @@ video {
     cursor: pointer;
 }
 
+.collection-btn:active {
+    transform: scale(0.95);
+}
+
 .collection-btn:hover{
     background-color: #4677c0fe;
 }
@@ -270,6 +297,7 @@ video {
 }
 
 .pokemon_img{
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -279,10 +307,27 @@ video {
 
 .pokemon_img img{
     margin-top: 25px;
-    height: 250px;
+    height: 58vh;
     border:1px solid rgba(71, 67, 67, 0.459);
     border-radius: 5px;
     cursor: pointer;
+}
+
+.price{
+    opacity: 0;
+    position: absolute;
+    bottom: 20%;
+    right: 20%;
+    color: #f4d557;
+    animation-name: priceAnimation;
+    animation-duration: 4s;
+}
+
+@keyframes priceAnimation {
+    0% {opacity: 0; bottom: 40%; right: 20%; font-size: 0;}
+    50% {opacity: 1; bottom: 65%; right: 65%; font-size: 50px;}
+    100% {opacity: 0; bottom: 100%; right: 100%; font-size: 0;}
+    
 }
 
 .deck-stats-container{
@@ -362,3 +407,55 @@ body.active-modal {
     right: 10px;
     padding: 5px 7px;
 }
+.signupForm {
+    height: 450px;
+    width: 300px;
+    background-color: #D3D3D3;
+    border: 1px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+}
+
+.signupForm h1{
+    color:#f4d557;
+    font-size: 80px;
+    font-family: 'Pokemon Solid', sans-serif; 
+    text-shadow: -7px 0 #3466AF, 0 4px #3466AF, 4px 0 #3466AF, 0 -3px #3466AF; 
+    letter-spacing: 4px;
+}
+
+.signupForm form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.login_btn:active {
+    transform: scale(0.95);
+}
+
+.signup_btn:active {
+    transform: scale(0.95);
+}
+
+#searchForm {
+    height:100%
+}
+
+#searchBarContainer {
+    height: 2.2em
+}
+
+#searchSubmitBtn {
+    background-image: url("https://i.ibb.co/C0cLH5V/pngegg.png")
+}
+
+#searchSubmitBtn:active {
+    transform: scale(0.95);
+
+}
+

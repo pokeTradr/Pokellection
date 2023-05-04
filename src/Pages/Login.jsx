@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { storeUser } from '../redux/user';
 import { useDispatch, useSelector } from 'react-redux';
 import { addCard } from '../redux/DeckList';
+import videoBG from '../assets/team-rocket.mp4';
 
 
 
@@ -48,6 +49,9 @@ const Login = () => {
     }
     
     return (
+        <div className='front-page-container'>
+            <video src={videoBG} autoPlay muted loop />
+         <div className='front-page-interface'>   
         <div className='login_container'>
             <h1>Log in</h1>
             <form onSubmit={submitHandler}>
@@ -55,6 +59,8 @@ const Login = () => {
               <input id='Password'type = 'password' placeholder = 'Password' value={password} onChange={(e) => setPassword(e.target.value)}/>
               <button className='submit_b'type='submit'>Login</button>
             </form>
+        </div>
+        </div>
         </div>
     ) 
 }
