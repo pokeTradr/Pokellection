@@ -284,3 +284,21 @@ video {
     border-radius: 5px;
     cursor: pointer;
 }
+
+.deck-stats-container{
+    z-index: 999;
+}
+.deck-type-icon {
+    height: 2em;
+    width:2em;
+}
+
+.deck-type-container {
+    /* position:relative; */
+    /* top:100px; */
+    /* width:100%; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+}
