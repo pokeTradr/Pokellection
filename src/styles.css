@@ -87,6 +87,7 @@ html {
 
 video {
     object-fit:cover;
+    width: 100vw
 }
 
 .signup_btn{
