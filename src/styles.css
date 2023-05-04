@@ -55,6 +55,14 @@ html {
     color: #FFCB05;
     letter-spacing: 3px;
     text-shadow: -10px 0 #3466AF, 0 6px #3466AF, 6px 0 #3466AF, 0 -5px #3466AF;
+    margin-bottom: 20px;
+    animation-name: titleAnimation;
+    animation-duration: 3s;
+}
+
+@keyframes titleAnimation {
+    0% {font-size: 0; opacity: 0;}
+    100% {font-size: 800%; opacity: 1;}
 }
 
 .front-page-container {
@@ -304,6 +312,23 @@ video {
     border:1px solid rgba(71, 67, 67, 0.459);
     border-radius: 5px;
     cursor: pointer;
+}
+
+.price{
+    opacity: 0;
+    position: absolute;
+    bottom: 20%;
+    right: 20%;
+    color: #f4d557;
+    animation-name: priceAnimation;
+    animation-duration: 4s;
+}
+
+@keyframes priceAnimation {
+    0% {opacity: 0; bottom: 40%; right: 20%; font-size: 0;}
+    50% {opacity: 1; bottom: 65%; right: 65%; font-size: 50px;}
+    100% {opacity: 0; bottom: 100%; right: 100%; font-size: 0;}
+    
 }
 
 .deck-stats-container{
