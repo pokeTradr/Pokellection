@@ -92,6 +92,7 @@ video {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    box-shadow: 2px 2px 5px black;
 }
 
 .signup_btn:hover{
@@ -107,6 +108,7 @@ video {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    box-shadow: 2px 2px 5px black;
 }
 
 .login_btn:hover{
@@ -122,13 +124,14 @@ video {
 .login_container{
     height: 450px;
     width: 300px;
-    background-color: #f4d557;
+    background-color: #D3D3D3;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
+    border: 2px solid black;
+    /* box-shadow: 2px 2px 5px black;     */
 }
 
 .login_container h1{
@@ -153,13 +156,22 @@ video {
     height: 36px;
     width: 200px;
     border-radius: 24px;
-    border: none;
+    border: 2px solid #5A5A5A;
     padding: 10px;
+    box-shadow: 2px 2px 5px grey;
+    /* font-family: 'Pokemon Solid'; */
+    font-weight: 100000;
 }
 
 
 .submit_b{
     height: 36px;
+    box-shadow: 2px 2px 5px grey;
+    /* font-family: 'Pokemon Solid'; */
+}
+
+.submit_b:active {
+    transform: scale(0.95);
 }
 
 #add_to_list_btn{
@@ -255,4 +267,38 @@ video {
 
 .collection-btn:hover{
     background-color: #4677c0fe;
+}
+
+.signupForm {
+    height: 450px;
+    width: 300px;
+    background-color: #D3D3D3;
+    border-top: 5px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.signupForm h1{
+    color:#f4d557;
+    font-size: 25px;
+    font-family: 'Pokemon Solid', sans-serif; 
+    text-shadow: -7px 0 #3466AF, 0 4px #3466AF, 4px 0 #3466AF, 0 -3px #3466AF; 
+    letter-spacing: 4px;
+}
+
+.signupForm form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.login_btn:active {
+    transform: scale(0.95);
+}
+
+.signup_btn:active {
+    transform: scale(0.95);
 }
