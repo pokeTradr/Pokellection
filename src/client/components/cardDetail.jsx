@@ -18,7 +18,6 @@ export default function cardDetail(props) {
   useEffect(() => {
     if (val.current == true) {
       val.current = false;
-      // dispatch(addCard(response.data.userData))
       return;
     }
 
@@ -42,7 +41,7 @@ export default function cardDetail(props) {
 
   if (cardVersions.length !== 0) {
     return (
-      <div  className="pokemon_img">
+      <div className="pokemon_img">
         <img
           onClick={addToCollectionHandler}
           src={cardVersions.data.images.small}
@@ -54,4 +53,3 @@ export default function cardDetail(props) {
     );
   }
 }
-
