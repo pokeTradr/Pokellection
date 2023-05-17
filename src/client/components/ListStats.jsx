@@ -1,6 +1,6 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import Icons from '../../assets/type-icons/typeIcons';
+import React from "react";
+import { useSelector } from "react-redux";
+import Icons from "../../assets/type-icons/typeIcons";
 
 function ListStats() {
   const { list } = useSelector((state) => state.deckList);
@@ -9,7 +9,7 @@ function ListStats() {
   const totalValue = decklist.reduce((acc, el) => {
     return acc + el.cardmarket.prices.averageSellPrice;
   }, 0);
-  console.log('totalValue of Collection:', totalValue);
+  console.log("totalValue of Collection:", totalValue);
   // #cards by type
   const cardTypes = {};
   decklist.map((el) => {
@@ -22,14 +22,13 @@ function ListStats() {
   console.log(cardTypes);
   const iconsToRender = Object.keys(cardTypes).map((type) => {
     return Icons[type] ? (
-      <img src={Icons[type]} className='deck-type-icon' />
+      <img src={Icons[type]} className="deck-type-icon" />
     ) : null;
   });
 
   return (
-    <div className='deck-stats-container'>
-      {/* <div className='totalValue'>Total Deck Value: {totalValue}</div> */}
-      <div className='deck-type-container'>{iconsToRender}</div>
+    <div className="deck-stats-container">
+      <div className="deck-type-container">{iconsToRender}</div>
     </div>
   );
 }

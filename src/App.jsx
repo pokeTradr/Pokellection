@@ -1,7 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import MainContainer from './client/containers/mainContainer';
-import Navbar from './client/components/HomeScreen';
 import FrontPage from './Pages/FrontPage';
 import Signup from './Pages/Signup';
 import Search from './Pages/Search';

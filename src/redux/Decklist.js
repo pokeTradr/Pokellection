@@ -13,10 +13,13 @@ export const deckListSlice = createSlice({
         },
         resetDecklist: (state) => {
             state.list = [];
+        },
+        removeCard: (state,action) => {
+            state.list.splice(action.payload, 1)
         }
     }
 })
 
-export const { addCard, resetDecklist } = deckListSlice.actions
+export const { addCard, resetDecklist, removeCard } = deckListSlice.actions
 
 export default deckListSlice.reducer;
