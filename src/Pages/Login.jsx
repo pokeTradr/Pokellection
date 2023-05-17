@@ -29,7 +29,6 @@ const Login = () => {
                 // console.log('entering the response for login')
                 // console.log(response.data.userData)
                 if(response.data.userData.length >= 1){
-                    console.log('helllllooooooo')
                     console.log(response.data.userData)
                     console.log(response.data.userData.length)
                     for (let i = 0; i < response.data.userData.length; i++) {

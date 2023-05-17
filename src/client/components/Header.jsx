@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { resetDecklist } from "../../redux/DeckList";
 import DeckInformation from '../../client/components/DeckInformation';
 import { useState } from "react";
+import { storeUser } from '../../redux/user';
 import ListStats from './ListStats';
 
 
@@ -27,7 +28,9 @@ const Header = () => {
 
 
     const handleClickRouter = path => {
+        dispatch(storeUser(''))
         navigate(path)
+        dispatch(resetDecklist())
     }
 
     return (
@@ -37,7 +40,7 @@ const Header = () => {
         <div className="btn_container_header">
           <button className='collection-btn' onClick={toggleModal}> Deck information </button>
           <button className="deletecollection-btn"onClick={() => dispatch(resetDecklist())}> Delete Entire Collection </button>
-          <button className="collection-btn" onClick={() => handleClickRouter("/")}> Sign Out<output></output> </button>
+          <button className="collection-btn" onClick={() => handleClickRouter("/")}> Sign Out </button>
         </div>
       </div>
 
