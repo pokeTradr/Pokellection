@@ -11,9 +11,6 @@ export const currentCardSlice = createSlice({
   reducers: {
     pokemonCard: (state, action) => {
         state.cardVersions = action.payload;
-      //   state.cardVersions = [...state.cardVersions, action.payload];
-
-      // state.cardVersions.push(action.payload);
     },
     searchCard: (state, action) => {
       state.currentInput = action.payload;

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { resetDecklist } from "../../redux/DeckList";
 import DeckInformation from '../../client/components/DeckInformation';
 import { useState } from "react";
+import { pokemonCard } from '../../redux/currentCard';
 import { storeUser } from '../../redux/user';
 import ListStats from './ListStats';
 
@@ -31,6 +32,7 @@ const Header = () => {
         dispatch(storeUser(''))
         navigate(path)
         dispatch(resetDecklist())
+        dispatch(pokemonCard([]))
     }
 
     return (
