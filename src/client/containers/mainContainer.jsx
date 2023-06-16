@@ -36,7 +36,7 @@ export default function MainContainer(props) {
       }
     };
   //initialize state to one pokemon fetched from server
-  const [data, setData] = useState(fakeProps);
+    const [data, setData] = useState(fakeProps);
   //update state whenever data is fetched from server
   return(
   <div id="main">
