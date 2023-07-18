@@ -6,6 +6,8 @@ Pokéllection is a comprehensive tool for Pokémon collectors, allowing you to e
 
 Whether you're a long-time collector or someone who has just started, Pokellection provides an easy-to-use interface to keep track of your Pokémon collection's worth.
 
+![pokellection3](https://github.com/pokeTradr/pokellection/assets/103064256/8306b090-3e58-4bd7-a73b-94edb2b3422f)
+
 ## Features
 
 - **Accurate Pricing:** Pokellection leverages real-time data from various marketplaces to provide the most accurate and up-to-date pricing information.
@@ -25,7 +27,9 @@ To get started with Pokéllection:
     ```MONGO_URI=<your mongo link here>```
 3. ``` npm install ``` dependencies.
 4. Run ``` npm run dev ``` and you're good to go!
-   
+
+![pokellection2](https://github.com/pokeTradr/pokellection/assets/103064256/b363d7b5-8241-421d-803b-e4b44a62487b)
+
 ### In the application:
 6. Sign up for a free account.
 7. Add Pokémon cards to your virtual collection.
